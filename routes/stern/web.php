@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/b', function(\Illuminate\Http\Request $request) {
+    event(new \App\Events\MyEvent('This is a test'));
+});
+
 Route::group(['namespace' => 'Auth', 'as' => 'auth::', 'middleware' => ['guest']], 
     base_path('routes/stern/guest.php'));
 

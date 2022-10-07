@@ -28,8 +28,3 @@ window.Echo = new Echo({
     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') == 'https',
 })
-
-var channel = window.Echo.channel('my-channel')
-channel.listen('MyEvent', function (data) {
-    alert(JSON.stringify(data))
-})

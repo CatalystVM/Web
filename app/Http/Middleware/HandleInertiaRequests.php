@@ -45,7 +45,12 @@ class HandleInertiaRequests extends Middleware {
 
             'route_current' => Route::currentRouteName(),
 
-            'auth.user' => Auth::check() ? Auth::user()->only(['name', 'email', 'dark_mode']) : null
+            'auth.user' => Auth::check() ? [
+                'name' => Auth::user()->name,
+                'email' => Auth::user()->email,
+                'dark_mode' => Auth::user()->dark_mode,
+
+            ] : null,
         ]);
     }
 }

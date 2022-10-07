@@ -118,6 +118,11 @@ export default {
 
         if (this.simple)
             document.body.classList.add('dark:text-white/80')
+
+        var channel = window.Echo.channel('my-channel')
+        channel.listen('MyEvent', function (data) {
+            alert(JSON.stringify(data))
+        })
     }
 }
 </script>

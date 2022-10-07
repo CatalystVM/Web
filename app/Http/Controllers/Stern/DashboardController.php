@@ -16,9 +16,6 @@ class DashboardController extends Controller {
      * @return \Inertia\Inertia
      */
     public function index(Request $request) {
-        Auth::user()->RemovePermission(\App\Models\Permission::where('id', '97726b6a-8c0a-4b72-b7a1-41be450141d3')->first());
-        dd(Auth::user()->permissions);
-        
         return Inertia::render('Stern/Dashboard');
     }
 
