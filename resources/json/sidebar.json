@@ -1,0 +1,49 @@
+[
+    {
+        "name": "Dashbaord",
+        "icon": "fa-solid fa-briefcase",
+        "route_name": "stern::dashboard"
+    },
+
+    {
+        "name": ""
+    },
+    {
+        "name": "Accounts",
+        "icon": "fa-solid fa-users",
+        "route_name": "stern::accounts"
+    },
+    {
+        "name": "Plans",
+        "icon": "fa-solid fa-browser",
+        "route_name": "stern::test"
+    },
+
+    {
+        "name": "Servers"
+    },
+    {
+        "name": "Applications",
+        "icon": "fa-solid fa-server",
+        "route_name": "stern::test"
+    },
+    {
+        "name": "Virtual Machine",
+        "icon": "fa-solid fa-server",
+        "route_name": "stern::servers::virtual.machine"
+    },
+
+    {
+        "name": "Backups"
+    },
+    {
+        "name": "Backup Nodes",
+        "icon": "fa-solid fa-server",
+        "route_name": "stern::test"
+    },
+    {
+        "name": "Server Backups",
+        "icon": "fa-solid fa-server",
+        "route_name": "stern::test"
+    }
+]
