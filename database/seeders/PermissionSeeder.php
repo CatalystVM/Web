@@ -15,7 +15,7 @@ class PermissionSeeder extends Seeder {
     public function run() {
         Permission::create([
             'name' => 'View Stern Panel',
-            'permission' => 'stern.view'
+            'raw' => 'stern.view'
         ]);
     }
 }

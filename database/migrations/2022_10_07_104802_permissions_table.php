@@ -22,7 +22,7 @@ return new class extends Migration {
         Schema::create($this->table, function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name', 32);
-            $table->string('permission');
+            $table->string('raw');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -49,7 +49,15 @@ class HandleInertiaRequests extends Middleware {
                 'name' => Auth::user()->name,
                 'email' => Auth::user()->email,
                 'dark_mode' => Auth::user()->dark_mode,
+                'permissions' => function () {
+                    $permissions = [];
 
+                    foreach (Auth::user()->permissions as $permission) {
+                        $permissions = array_merge($permissions, $permission->permission->raw);
+                    }
+
+                    return $permissions;
+                }
             ] : null,
         ]);
     }

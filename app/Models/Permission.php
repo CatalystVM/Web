@@ -32,7 +32,7 @@ class Permission extends Model {
      */
     protected $fillable = [
         'name',
-        'permission'
+        'raw'
     ];
 
     /**
