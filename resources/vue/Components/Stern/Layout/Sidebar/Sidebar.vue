@@ -20,14 +20,14 @@
                 :class="{'dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent': $page.props.auth.user.dark_mode}">
             <div class="items-center block w-full h-auto grow basis-full" id="sidenav-collapse-main">
                 <ul class="flex flex-col pl-0 mb-0 list-none">
-                    <NavLink name="Dashboard" :active="$page.props.route_current == 'stern::dashboard'"
+                    <NavLink name="Dashboard" :active="route().current() == 'stern::dashboard'"
                         route_name="stern::dashboard" :submenu=false>
                         <font-awesome-icon icon="fa-solid fa-briefcase" />
                     </NavLink>
 
                     <NavLink name=""></NavLink>
-                    <NavLink name="Accounts" :active="$page.props.route_current == 'stern::users'"
-                        route_name="stern::users" :submenu=false>
+                    <NavLink name="Accounts" :active="route().current() == 'stern::users'" route_name="stern::users"
+                        :submenu=false>
                         <font-awesome-icon icon="fa-solid fa-users" />
                     </NavLink>
                     <NavLink name="Plans" :active=false route_name="stern::test" :submenu=false>

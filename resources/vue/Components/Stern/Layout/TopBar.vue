@@ -6,19 +6,19 @@
             <nav>
                 <!-- breadcrumb -->
                 <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
-                    <li class="text-sm pl-2 leading-normal">
-                        <a class="opacity-50 text-slate-700 dark:text-white after:pl-2 after:text-gray-600 after:content-['/'] capitalize"
-                            href="javascript:;">{{ $page.props.app.name }}</a>
+                    <li class="leading-normal text-sm breadcrumb-item">
+                        <Link class="text-slate-700 opacity-30 dark:text-white" href="javascript:;">
+                        <Link class="opacity-50 text-slate-700 dark:text-white after:text-gray-600 capitalize"
+                            href="javascript:;">{{ $page.props.app.name }}</Link>
+                        </Link>
                     </li>
-                    <li class="text-sm pl-2 leading-normal" v-for="(breadcrumb, index) in breadcrumbs" :key="index">
-                        <a class="opacity-50 text-slate-700 dark:text-white capitalize" :class="{
-                            'after:pl-2 after:text-gray-600 after:content-[\'/\']': !(index == breadcrumbs.length - 1),
-                            'text-slate-700 dark:text-white dark:before:text-white': index == breadcrumbs.length - 1
-                        }" href="javascript:;">
-                            {{ breadcrumb }}</a>
+                    <li class="text-sm pl-2 leading-normal before:float-left before:pr-2 before:text-gray-600 before:content-['/'] capitalize"
+                        v-for="breadcrumb in route().current().split('::').splice(1)">
+                        <Link class="opacity-50 text-slate-700 dark:text-white" href="javascript:;">{{ breadcrumb }}
+                        </Link>
                     </li>
-                    <h6 class="mb-0 font-bold capitalize dark:text-white">Default</h6>
                 </ol>
+                <h6 class="mb-0 font-bold capitalize dark:text-white">{{ route().current().split('::').at(-1) }}</h6>
             </nav>
 
             <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto" id="navbar">
@@ -48,7 +48,7 @@
                         </Link>
                     </li>
                     <li class="flex items-center pl-4">
-                        <Link :href="route('stern::auth::logout')" method="POST"
+                        <Link :href="route('stern::auth::logout')" method="POST" as="button"
                             class="hidden p-0 transition-all ease-nav-brand text-sm text-slate-500 dark:text-white xl:block"
                             aria-expanded="false">
                         <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" />
@@ -80,15 +80,7 @@ import Search from '../Form/Search.vue'
 export default {
     components: { Search },
     props: {
-        search: Boolean,
-    },
-    mounted() {
-        console.log(this.$page.props.route_current.split('::'))
-    },
-    data() {
-        return {
-            breadcrumbs: this.$page.props.route_current.split('::').splice(1)
-        }
+        search: Boolean
     }
 }
 
