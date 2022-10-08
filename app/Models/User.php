@@ -96,12 +96,16 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     ////////////////////////////////////////
 
-    public function HasPermission(Permission $permission = null) : bool {
+    public function HasPermission(string $permission)  : bool {
         if ($permission == null) 
             return false;
 
+        $p = Permission::where('raw', $permission)->first();
+        if (!$p) 
+            return false;
+
         foreach ($this->permissions as $perm) {
-            if ($perm->permission->id == $permission->id)
+            if ($perm->permission->id == $p->id)
                 return true;
         }
         return false;
