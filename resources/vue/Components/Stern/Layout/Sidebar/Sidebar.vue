@@ -31,16 +31,19 @@
                         <font-awesome-icon icon="fa-solid fa-users" />
                     </NavLink>
                     <NavLink name="Plans" :active=false route_name="stern::test" :submenu=false>
-                        <font-awesome-icon icon="fa-solid fa-users" />
+                        <font-awesome-icon icon="fa-solid fa-cart-flatbed" />
                     </NavLink>
 
                     <NavLink name="Servers"></NavLink>
                     <NavLink name="Applications" :active=false route_name="stern::test" :submenu=false>
-                        <font-awesome-icon icon="fa-solid fa-cart-flatbed" />
+                        <font-awesome-icon icon="fa-solid fa-browsers" />
                     </NavLink>
                     <NavLink name="Virtual Machine" :active=false route_name="stern::servers::virtual.machine"
                         :submenu=false>
                         <font-awesome-icon icon="fa-solid fa-server" />
+                    </NavLink>
+                    <NavLink name="Compute Resources" :active=false route_name="stern::test" :submenu=false>
+                        <font-awesome-icon icon="fa-solid fa-microchip-ai" />
                     </NavLink>
 
                     <NavLink name="Backups"></NavLink>

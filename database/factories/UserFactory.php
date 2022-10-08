@@ -20,9 +20,9 @@ class UserFactory extends Factory {
         $phone_number = substr($phone_number, strlen($phone_number) - 12, 12);
 
         return [
-            'name' => fake()->name(),
+            'name' => fake()->unique()->name(),
             'phone_number' => $phone_number,
-            'email' => fake()->email(),
+            'email' => fake()->unique()->email(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),

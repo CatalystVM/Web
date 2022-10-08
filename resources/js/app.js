@@ -16,14 +16,20 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/pro-solid-svg-icons'
+import { far } from '@fortawesome/pro-regular-svg-icons'
+import { fal } from '@fortawesome/pro-light-svg-icons'
+import { fat } from '@fortawesome/pro-thin-svg-icons'
+import { fad } from '@fortawesome/pro-duotone-svg-icons'
+import { fass } from '@fortawesome/sharp-solid-svg-icons'
 
 /* add icons to the library */
 library.add(fas)
 library.add(far)
-library.add(fab)
+library.add(fal)
+library.add(fat)
+library.add(fad)
+library.add(fass)
 
 function resolvePageComponent(name, pages) {
     for (const path in pages) {
