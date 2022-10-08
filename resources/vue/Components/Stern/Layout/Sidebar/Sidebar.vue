@@ -1,5 +1,5 @@
 <template>
-    <perfect-scrollbar @ps-scroll-y="onScroll" ref="scrollbar" v-if="!simple">
+    <perfect-scrollbar ref="scrollbar" v-if="!simple">
         <aside mini="false"
             class="fixed inset-y-0 left-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto transition-all duration-200 -translate-x-full bg-white border-0 shadow-none xl:ml-4 ease-soft-in-out z-990 max-w-64 rounded-2xl xl:translate-x-0 xl:bg-transparent"
             :class="{'dark:bg-gray-950': $page.props.auth.user.dark_mode}" id="sidenav-main">
@@ -26,31 +26,29 @@
                     </NavLink>
 
                     <NavLink name=""></NavLink>
-                    <NavLink name="Accounts" :active="route().current() == 'stern::users'" route_name="stern::users"
-                        :submenu=false>
+                    <NavLink name="Accounts" route_name="stern::users" :submenu=false>
                         <font-awesome-icon icon="fa-solid fa-users" />
                     </NavLink>
-                    <NavLink name="Plans" :active=false route_name="stern::test" :submenu=false>
+                    <NavLink name="Plans" route_name="stern::test" :submenu=false>
                         <font-awesome-icon icon="fa-solid fa-cart-flatbed" />
                     </NavLink>
 
                     <NavLink name="Servers"></NavLink>
-                    <NavLink name="Applications" :active=false route_name="stern::test" :submenu=false>
+                    <NavLink name="Applications" route_name="stern::servers::applications" :submenu=false>
                         <font-awesome-icon icon="fa-solid fa-browsers" />
                     </NavLink>
-                    <NavLink name="Virtual Machine" :active=false route_name="stern::servers::virtual.machine"
-                        :submenu=false>
+                    <NavLink name="Virtual Machine" route_name="stern::servers::virtual.machine" :submenu=false>
                         <font-awesome-icon icon="fa-solid fa-server" />
                     </NavLink>
-                    <NavLink name="Compute Resources" :active=false route_name="stern::test" :submenu=false>
+                    <NavLink name="Compute Resources" route_name="stern::servers::compute.resources" :submenu=false>
                         <font-awesome-icon icon="fa-solid fa-microchip-ai" />
                     </NavLink>
 
                     <NavLink name="Backups"></NavLink>
-                    <NavLink name="Backup Nodes" :active=false route_name="stern::test" :submenu=false>
+                    <NavLink name="Backup Nodes" route_name="stern::test" :submenu=false>
                         <font-awesome-icon icon="fa-solid fa-circle-nodes" />
                     </NavLink>
-                    <NavLink name="Server Backups" :active=false route_name="stern::test" :submenu=false>
+                    <NavLink name="Server Backups" route_name="stern::test" :submenu=false>
                         <font-awesome-icon icon="fa-solid fa-database" />
                     </NavLink>
                 </ul>
@@ -109,15 +107,10 @@
 </template>
 
 <script>
-import NavLink from '../Sidebar/Sidebar-Item.vue'
+import NavLink from '@/Components/Stern/Layout/Sidebar/Sidebar-Item.vue'
 
 export default {
     props: { simple: Boolean },
     components: { NavLink },
-    methods: {
-        onScroll(event) {
-            console.log(this.$refs.scrollbar.ps, event)
-        }
-    }
 }
 </script>

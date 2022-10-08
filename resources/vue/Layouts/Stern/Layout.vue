@@ -73,8 +73,8 @@
 </template>
 
 <script>
-import TopBar from '../../Components/Stern/Layout/TopBar.vue'
-import Sidebar from '../../Components/Stern/Layout/Sidebar/Sidebar.vue'
+import TopBar from '@/Components/Stern/Layout/TopBar.vue'
+import Sidebar from '@/Components/Stern/Layout/Sidebar/Sidebar.vue'
 
 export default {
     props: {

@@ -90,8 +90,8 @@
 </template>
 
 <script>
-import Layout from '../../../../Layouts/Stern/Layout.vue'
-import LoginForm from '../../../../Components/Stern/Form/Auth/Login.vue'
+import Layout from '@/Layouts/Stern/Layout.vue'
+import LoginForm from '@/Components/Stern/Form/Auth/Login.vue'
 
 export default {
     components: { LoginForm },

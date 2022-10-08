@@ -3,23 +3,7 @@
         class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 mt-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start"
         navbar-scroll="true">
         <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
-            <nav>
-                <!-- breadcrumb -->
-                <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
-                    <li class="leading-normal text-sm breadcrumb-item">
-                        <Link class="text-slate-700 opacity-30 dark:text-white" href="javascript:;">
-                        <Link class="opacity-50 text-slate-700 dark:text-white after:text-gray-600 capitalize"
-                            href="javascript:;">{{ $page.props.app.name }}</Link>
-                        </Link>
-                    </li>
-                    <li class="text-sm pl-2 leading-normal before:float-left before:pr-2 before:text-gray-600 before:content-['/'] capitalize"
-                        v-for="breadcrumb in route().current().split('::').splice(1)">
-                        <Link class="opacity-50 text-slate-700 dark:text-white" href="javascript:;">{{ breadcrumb }}
-                        </Link>
-                    </li>
-                </ol>
-                <h6 class="mb-0 font-bold capitalize dark:text-white">{{ route().current().split('::').at(-1) }}</h6>
-            </nav>
+            <Breadcrubs />
 
             <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto" id="navbar">
                 <div class="flex items-center md:ml-auto md:pr-4">
@@ -75,10 +59,11 @@
 </template>
 
 <script>
-import Search from '../Form/Search.vue'
+import Search from '@/Components/Stern/Form/Search.vue'
+import Breadcrubs from '@/Components/Stern/Layout/Breadcrubs.vue'
 
 export default {
-    components: { Search },
+    components: { Search, Breadcrubs },
     props: {
         search: Boolean
     }

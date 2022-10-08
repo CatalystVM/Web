@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import Layout from '../../../Layouts/Stern/Layout.vue'
+import Layout from '@/Layouts/Stern/Layout.vue'
 
 export default {
     layout: (h, page) => {
@@ -78,7 +78,7 @@ export default {
 <script setup>
 import { Head } from '@inertiajs/inertia-vue3'
 import { defineComponent } from 'vue'
-import Pagination from '../../../Components/Stern/Pagination.vue'
+import Pagination from '@/Components/Stern/Pagination.vue'
 
 defineProps({ users: Object })
 defineComponent({ Head, Pagination })

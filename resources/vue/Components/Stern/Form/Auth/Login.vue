@@ -31,8 +31,8 @@
 </template>
 
 <script setup>
-import Email from '../../../../Components/Stern/Elements/Input/Email.vue'
-import Password from '../../../../Components/Stern/Elements/Input/Password.vue'
+import Email from '@/Elements/Stern/Input/Email.vue'
+import Password from '@/Elements/Stern/Input/Password.vue'
 
 import { useForm } from '@inertiajs/inertia-vue3'
 import { defineComponent } from 'vue'

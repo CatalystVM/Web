@@ -1,17 +1,18 @@
 <template>
     <li class="mt-0.5 w-full" v-if="route_name">
-        <Link :active_primary="active ? 'true' : 'false'" :collapse_trigger="submenu ? 'primary' : 'none'"
-            :href="route(route_name)" :aria-expanded="active ? 'true' : 'false'"
+        <Link :active_primary="($page.props.route_current == route_name) ? 'true' : 'false'"
+            :collapse_trigger="submenu ? 'primary' : 'none'" :href="route(route_name)"
+            :aria-expanded="($page.props.route_current == route_name) ? 'true' : 'false'"
             class="ease-soft-in-out text-sm py-2.7 active after:ease-soft-in-out after:font-awesome-5-free my-0 mx-4 flex items-center whitespace-nowrap px-4 font-medium text-slate-500 shadow-none transition-colors after:ml-auto after:inline-block after:font-bold after:text-slate-800/50 after:antialiased after:transition-all after:duration-200"
             :class="{
-                'rounded-lg bg-white': active,
+                'rounded-lg bg-white': ($page.props.route_current == route_name),
                 'dark:text-white dark:opacity-80 dark:after:text-white/50 dark:after:text-white': $page.props.auth.user.dark_mode
             }" role="button">
 
         <div class="stroke-none shadow-soft-sm mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current p-2.5 text-center"
             :class="{
-                'bg-gradient-to-tl from-blue-700 to-sky-500 text-white': active,
-                'text-slate-800': !active
+                'bg-gradient-to-tl from-blue-700 to-sky-500 text-white': ($page.props.route_current == route_name),
+                'text-slate-800': !($page.props.route_current == route_name)
             }">
             <slot />
         </div>
@@ -32,7 +33,6 @@
 export default {
     props: {
         name: String,
-        active: Boolean,
         route_name: String,
         submenu: Boolean
     }

@@ -1,6 +1,7 @@
 <template>
 
-    <Head title="Dashboard" />
+    <Head title="Compute Resources" />
+    Compute Resources
 </template>
 
 <script>
@@ -13,10 +14,4 @@ export default {
         }, () => page)
     }
 }
-</script>
-
-<script setup>
-import { defineComponent } from 'vue'
-
-defineComponent({})
 </script>

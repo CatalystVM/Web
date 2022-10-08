@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Layout from '../../../../Layouts/Stern/Layout.vue'
+import Layout from '@/Layouts/Stern/Layout.vue'
 
 export default {
     layout: (h, page) => {
