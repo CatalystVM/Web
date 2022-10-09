@@ -9,6 +9,10 @@ export default defineConfig({
         https: false,
         open: true
     },
+    purge: [
+        './resources/js/**/*.{vue,js}',
+        './resources/views/**/*.blade.php'
+    ],
     plugins: [
         vue(),
         laravel({
@@ -35,7 +39,8 @@ export default defineConfig({
     },
     build: {
         watch: {
-        // https://rollupjs.org/guide/en/#watch-options
+            include: 'resources/**'
+            // https://rollupjs.org/guide/en/#watch-options
         }
     }
     

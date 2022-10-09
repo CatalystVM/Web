@@ -4,7 +4,7 @@
 
     <div class="relative flex flex-col w-full min-w-0 mb-0 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border"
         :class="{
-            'dark:bg-gray-950 dark:shadow-soft-dark-xl': $page.props.auth.user.dark_mode
+            'dark:bg-gray-950 dark:shadow-soft-dark-xl': $page.props.auth?.user?.dark_mode
         }">
         <div class="flex-auto px-0 pt-0 pb-2">
             <div class="p-0 overflow-x-auto">

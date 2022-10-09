@@ -52,7 +52,7 @@
             content="/build//assets/images/favicon/mstile-310x310.png" />
     </Head>
 
-    <Sidebar v-if="sidebar" :simple=simple />
+    <sidebar v-if="sidebar" :simple=simple />
 
     <main v-if="simple" class="mt-0 transition-all duration-200 ease-soft-in-out">
         <section>
@@ -62,7 +62,7 @@
 
     <main v-if="!simple"
         class="relative h-full max-h-screen transition-all duration-200 ease-soft-in-out xl:ml-68 rounded-xl">
-        <TopBar v-if="topbar" :search=search />
+        <topbar v-if="topbar" :search=search />
 
         <div class="w-full p-6 mx-auto">
             <slot />
@@ -95,7 +95,10 @@ export default {
             default: false
         }
     },
-    components: { TopBar, Sidebar },
+    components: {
+        'topbar': TopBar,
+        'sidebar': Sidebar
+    },
     mounted() {
         //document.getElementsByTagName('html')[0].className = this.$page.props.auth?.user?.dark_mode && !this.simple ? 'dark' : ''
 

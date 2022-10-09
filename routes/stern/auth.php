@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
-Route::group(['middleware' => ['auth', 'can:permission,App\Models\User,"stern.view"']], function() {
+Route::group(['middleware' => ['auth' /*, 'can:permission,App\Models\User,"stern.view"' */]], function() {
     Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
+
     Route::get('/test', ['as' => 'test', 'uses' => 'DashboardController@index']);
 
-    Route::get('/loggginAs/{user:id?}', function(\Illuminate\Http\Request $request, \App\Models\User $user = null) {
+    Route::get('/loginAs/{user:id?}', function(\Illuminate\Http\Request $request, \App\Models\User $user = null) {
         if ($user) {
             \Illuminate\Support\Facades\Session::put( 'orig_user', Auth()->id() );
             \Illuminate\Support\Facades\Auth::login($user);

@@ -1,8 +1,8 @@
 <template>
     <div class="flex-auto p-6 text-center">
         <form @submit.prevent="submit" role="form text-left">
-            <Email :error="form.errors?.email" v-model="form.email" />
-            <Password :error="form.errors?.password" v-model="form.password" />
+            <input-email :error="form.errors?.email" v-model="form.email" />
+            <input-password :error="form.errors?.password" v-model="form.password" />
 
             <div class="min-h-6 mb-0.5 block pl-12 text-left">
                 <input id="rememberMe" v-model="form.rememberMe"
@@ -30,14 +30,23 @@
     </div>
 </template>
 
-<script setup>
+<script>
 import Email from '@/Elements/Stern/Input/Email.vue'
 import Password from '@/Elements/Stern/Input/Password.vue'
 
+export default {
+    components: {
+        'input-email': Email,
+        'input-password': Password
+    }
+}
+</script>
+
+<script setup>
 import { useForm } from '@inertiajs/inertia-vue3'
 import { defineComponent } from 'vue'
 
-defineComponent({ Email, Password })
+defineComponent({})
 
 let form = useForm({
     email: '',
@@ -46,6 +55,8 @@ let form = useForm({
 })
 
 let submit = () => {
-    form.post(route('stern::auth::login::post'))
+    form.post(route('stern::auth::login::post'), {
+        wantsJson: true
+    })
 }
 </script>

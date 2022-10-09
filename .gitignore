@@ -120,3 +120,5 @@ resources/assets/img
 # Laravel 
 storage/*.key
 .env
+
+public/assets

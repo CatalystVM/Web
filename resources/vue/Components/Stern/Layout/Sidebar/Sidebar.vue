@@ -1,74 +1,71 @@
 <template>
-    <perfect-scrollbar ref="scrollbar" v-if="!simple">
-        <aside mini="false"
-            class="fixed inset-y-0 left-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto transition-all duration-200 -translate-x-full bg-white border-0 shadow-none xl:ml-4 ease-soft-in-out z-990 max-w-64 rounded-2xl xl:translate-x-0 xl:bg-transparent"
-            :class="{'dark:bg-gray-950': $page.props.auth.user.dark_mode}" id="sidenav-main">
-            <div class="h-20">
-                <i class="absolute top-0 right-0 p-4 opacity-50 cursor-pointer text-slate-400 dark:text-white xl:hidden"
-                    aria-hidden="true"></i>
-                <Link class="block px-8 py-6  text-sm whitespace-nowrap text-slate-700 dark:text-white"
-                    :href="route('stern::dashboard')" target="_blank">
-                <img src="../../../../../assets/images/logo.webp"
-                    class="inline-block h-full max-w-full transition-all duration-200 ease-soft-in-out dark:hidden">
-                <img src="../../../../../assets/images//logo-d.webp"
-                    class="hidden h-full max-w-full transition-all duration-200 ease-soft-in-out dark:inline-block">
-                <!-- <span class="ml-1 font-semibold transition-all duration-200 ease-soft-in-out">{{ config('app.name') }}</span> -->
-                </Link>
-            </div>
+    <aside
+        class="fixed inset-y-0 left-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto transition-all duration-200 -translate-x-full bg-white border-0 shadow-none xl:ml-4 ease-soft-in-out z-990 max-w-64 rounded-2xl xl:translate-x-0 xl:bg-transparent"
+        :class="{'dark:bg-gray-950': $page.props.auth?.user?.dark_mode}" v-if="!simple">
+        <div class="h-20">
+            <i class="absolute top-0 right-0 p-4 opacity-50 cursor-pointer text-slate-400 dark:text-white xl:hidden"
+                aria-hidden="true"></i>
+            <Link class="block px-8 py-6  text-sm whitespace-nowrap text-slate-700 dark:text-white"
+                :href="route('stern::dashboard')" target="_blank">
+            <img src="../../../../../assets/images/logo.webp"
+                class="inline-block h-full max-w-full transition-all duration-200 ease-soft-in-out dark:hidden">
+            <img src="../../../../../assets/images//logo-d.webp"
+                class="hidden h-full max-w-full transition-all duration-200 ease-soft-in-out dark:inline-block">
+            </Link>
+        </div>
 
-            <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent"
-                :class="{'dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent': $page.props.auth.user.dark_mode}">
-            <div class="items-center block w-full h-auto grow basis-full" id="sidenav-collapse-main">
-                <ul class="flex flex-col pl-0 mb-0 list-none">
-                    <NavLink name="Dashboard" :active="route().current() == 'stern::dashboard'"
-                        route_name="stern::dashboard" :submenu=false>
-                        <font-awesome-icon icon="fa-solid fa-briefcase" />
-                    </NavLink>
+        <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent"
+            :class="{'dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent': $page.props.auth?.user?.dark_mode}">
+        <div class="items-center block w-full h-auto grow basis-full" id="sidenav-collapse-main">
+            <ul class="flex flex-col pl-0 mb-0 list-none">
+                <sidebar-item name="Dashboard" route_name="stern::dashboard" :submenu=false
+                    icon="fa-solid fa-briefcase"></sidebar-item>
+                <sidebar-item name="Accounts" route_name="stern::users" :submenu=false icon="fa-solid fa-users">
 
-                    <NavLink name=""></NavLink>
-                    <NavLink name="Accounts" route_name="stern::users" :submenu=false>
-                        <font-awesome-icon icon="fa-solid fa-users" />
-                    </NavLink>
-                    <NavLink name="Plans" route_name="stern::test" :submenu=false>
-                        <font-awesome-icon icon="fa-solid fa-cart-flatbed" />
-                    </NavLink>
+                </sidebar-item>
 
-                    <NavLink name="Servers"></NavLink>
-                    <NavLink name="Applications" route_name="stern::servers::applications" :submenu=false>
-                        <font-awesome-icon icon="fa-solid fa-browsers" />
-                    </NavLink>
-                    <NavLink name="Virtual Machine" route_name="stern::servers::virtual.machine" :submenu=false>
-                        <font-awesome-icon icon="fa-solid fa-server" />
-                    </NavLink>
-                    <NavLink name="Compute Resources" route_name="stern::servers::compute.resources" :submenu=false>
-                        <font-awesome-icon icon="fa-solid fa-microchip-ai" />
-                    </NavLink>
+                <sidebar-item name="Billing"></sidebar-item>
 
-                    <NavLink name="Backups"></NavLink>
-                    <NavLink name="Backup Nodes" route_name="stern::test" :submenu=false>
-                        <font-awesome-icon icon="fa-solid fa-circle-nodes" />
-                    </NavLink>
-                    <NavLink name="Server Backups" route_name="stern::test" :submenu=false>
-                        <font-awesome-icon icon="fa-solid fa-database" />
-                    </NavLink>
-                </ul>
-            </div>
+                <sidebar-item name="Servers"></sidebar-item>
+                <sidebar-item name="Virtual Machine" route_name="stern::servers::virtual" :submenu=true
+                    icon="fa-solid fa-server">
+                    <sidebar-subitem name="Applications" route_name="stern::servers::virtual::applications">
+                    </sidebar-subitem>
+                    <sidebar-subitem name="Nodes" route_name="stern::servers::virtual::nodes"></sidebar-subitem>
+                </sidebar-item>
+                <sidebar-item name="Compute Resources" route_name="stern::test" :submenu=true
+                    icon="fa-solid fa-microchip-ai">
+                    <sidebar-subitem name="Nodes" route_name="stern::test"></sidebar-subitem>
+                    <sidebar-subitem name="Locations" route_name="stern::test"></sidebar-subitem>
+                    <sidebar-subitem name="Plans" route_name="stern::test"></sidebar-subitem>
+                </sidebar-item>
+                <sidebar-item name="Backups" route_name="stern::test" :submenu=true icon="fa-solid fa-database">
+                    <sidebar-subitem name="Nodes" route_name="stern::test"></sidebar-subitem>
+                    <sidebar-subitem name="Backs" route_name="stern::test"></sidebar-subitem>
+                </sidebar-item>
 
-            <div sidenav-card="" class="">
+                <sidebar-item name="Domains"></sidebar-item>
+                <sidebar-item name="Top Level Domains" route_name="stern::test" :submenu=false
+                    icon="fa-solid fa-browsers">
+                </sidebar-item>
+
+                <sidebar-item name="Support"></sidebar-item>
+            </ul>
+        </div>
+
+        <div sidenav-card="" class="">
+            <div class="">
                 <div class="">
-                    <div class="">
-                        <i sidenav-card-icon="" class="" aria-hidden="true"></i>
-                    </div>
-                    <div class=""></div>
+                    <i sidenav-card-icon="" class="" aria-hidden="true"></i>
                 </div>
+                <div class=""></div>
             </div>
-        </aside>
-    </perfect-scrollbar>
+        </div>
+    </aside>
 
     <div class="container sticky top-0 z-110" v-if="simple">
         <div class="flex flex-wrap -mx-3">
             <div class="w-full max-w-full px-3 flex-0">
-
                 <nav
                     class="absolute top-0 left-0 right-0 z-30 flex flex-wrap items-center justify-between w-full px-4 py-2 mx-6 my-4 shadow-soft-2xl bg-white/80 backdrop-blur-2xl backdrop-saturate-200 rounded-blur lg:flex-nowrap lg:justify-start">
                     <div
@@ -88,7 +85,7 @@
                             </span>
                         </button>
 
-                        <div
+                        <!-- <div
                             class="items-center w-full pt-4 pb-2 transition-all duration-350 ease-soft-in-out lg-max:max-h-0 lg-max:overflow-hidden lg-max:hidden lg-max:bg-transparent lg-max:shadow-none md-max:relative grow basis-full rounded-2xl lg:flex lg:basis-auto lg:py-0">
                             <ul class="hidden pl-0 mb-0 list-none lg:block lg:flex-row">
                                 <li>
@@ -98,7 +95,7 @@
                                         Now</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </nav>
             </div>
@@ -107,10 +104,14 @@
 </template>
 
 <script>
-import NavLink from '@/Components/Stern/Layout/Sidebar/Sidebar-Item.vue'
+import Item from '@/Components/Stern/Layout/Sidebar/Sidebar-Item.vue'
+import ItemSub from '@/Components/Stern/Layout/Sidebar/Sidebar-SubItem.vue'
 
 export default {
     props: { simple: Boolean },
-    components: { NavLink },
+    components: {
+        'sidebar-item': Item,
+        'sidebar-subitem': ItemSub
+    },
 }
 </script>

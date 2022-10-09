@@ -13,12 +13,23 @@ class UserSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        User::factory()->create([
+        $user = User::factory()->create([
             'name' => 'Carson Hopper',
             'phone_number' => '478-550-7102',
             'email' => 'carson.hopper@outlook.com',
             'dark_mode' => true
         ]);
+        $user->refresh();
+        $user->GivePermission(\App\Models\Permission::where('raw', 'stern.view')->first());
+
+        $user = User::factory()->create([
+            'name' => 'Jack Henderson',
+            'phone_number' => '714-356-5395',
+            'email' => 'jack@catalystvm.com',
+            'dark_mode' => true
+        ]);
+        $user->refresh();
+        $user->GivePermission(\App\Models\Permission::where('raw', 'stern.view')->first());
 
         User::factory(200)->create();
     }
