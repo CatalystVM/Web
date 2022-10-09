@@ -1,7 +1,7 @@
 <template>
 
-    <Head title="Compute Resources" />
-    Compute Resources
+    <Head title="Locations" />
+    Locations
 </template>
 
 <script>

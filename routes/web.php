@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return \Inertia\Inertia::render('Home', [
-        'name' => 'Carson'
+        'name' => request()->getClientIp()
     ]);
 });

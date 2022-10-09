@@ -29,15 +29,17 @@
                 <sidebar-item name="Servers"></sidebar-item>
                 <sidebar-item name="Virtual Machine" route_name="stern::servers::virtual" :submenu=true
                     icon="fa-solid fa-server">
+                    <sidebar-subitem name="Nodes" route_name="stern::servers::virtual::nodes"></sidebar-subitem>
                     <sidebar-subitem name="Applications" route_name="stern::servers::virtual::applications">
                     </sidebar-subitem>
-                    <sidebar-subitem name="Nodes" route_name="stern::servers::virtual::nodes"></sidebar-subitem>
+                    <sidebar-subitem name="Images" route_name="stern::servers::virtual::images">
+                    </sidebar-subitem>
                 </sidebar-item>
-                <sidebar-item name="Compute Resources" route_name="stern::test" :submenu=true
+                <sidebar-item name="Compute Resources" route_name="stern::servers::compute" :submenu=true
                     icon="fa-solid fa-microchip-ai">
-                    <sidebar-subitem name="Nodes" route_name="stern::test"></sidebar-subitem>
-                    <sidebar-subitem name="Locations" route_name="stern::test"></sidebar-subitem>
-                    <sidebar-subitem name="Plans" route_name="stern::test"></sidebar-subitem>
+                    <sidebar-subitem name="Nodes" route_name="stern::servers::compute::nodes"></sidebar-subitem>
+                    <sidebar-subitem name="Locations" route_name="stern::servers::compute::locations"></sidebar-subitem>
+                    <sidebar-subitem name="Plans" route_name="stern::servers::compute::plans"></sidebar-subitem>
                 </sidebar-item>
                 <sidebar-item name="Backups" route_name="stern::test" :submenu=true icon="fa-solid fa-database">
                     <sidebar-subitem name="Nodes" route_name="stern::test"></sidebar-subitem>
