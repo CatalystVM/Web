@@ -8,11 +8,7 @@
 import Layout from '@/Layouts/Stern/Layout.vue'
 
 export default {
-    layout: (h, page) => {
-        return h(Layout, {
-            search: false, topbar: false, sidebar: false
-        }, () => page)
-    }
+    layout: (h, page) => { return h(Layout, { sidebar: true, simple: true }, () => page) }
 }
 </script>
 
