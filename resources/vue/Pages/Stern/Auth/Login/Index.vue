@@ -82,7 +82,7 @@
                             </a>
                         </div>
                     </div>
-                    <LoginForm />
+                    <form-login />
                 </div>
             </div>
         </div>
@@ -94,7 +94,9 @@ import Layout from '@/Layouts/Stern/Layout.vue'
 import LoginForm from '@/Components/Stern/Form/Auth/Login.vue'
 
 export default {
-    components: { LoginForm },
+    components: {
+        'form-login': LoginForm
+    },
 
     layout: (h, page) => { return h(Layout, { sidebar: true, simple: true }, () => page) }
 }
