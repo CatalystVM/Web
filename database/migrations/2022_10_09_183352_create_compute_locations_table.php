@@ -11,17 +11,22 @@ return new class extends Migration {
      *
      * @var string
      */
-    protected $table = 'plans_server_dedicated'; 
-
+    protected $table = 'compute_locations'; 
+    
     /**
      * Run the migrations.
+     * 
+     * https://docs.solus.io/api/#tag/Locations/operation/get-an-existing-location
      *
      * @return void
      */
     public function up() {
         Schema::create($this->table, function (Blueprint $table) {
             $table->uuid('id')->primary();
-            
+            $table->string('city', 24);
+            $table->string('state', 24);
+            $table->string('country', 24);
+            $table->string('icon')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

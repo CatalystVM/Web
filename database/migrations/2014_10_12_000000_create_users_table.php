@@ -27,7 +27,7 @@ return new class extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('last_seen')->nullable();
             $table->string('password');
-            $table->integer('support_pin', 4)->default(rand(1000,9999));
+            $table->integer('support_pin');
             $table->boolean('dark_mode')->default(true);
             $table->rememberToken();
             $table->timestamps();

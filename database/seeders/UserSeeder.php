@@ -17,7 +17,8 @@ class UserSeeder extends Seeder {
             'name' => 'Carson Hopper',
             'phone_number' => '478-550-7102',
             'email' => 'carson.hopper@outlook.com',
-            'dark_mode' => true
+            'dark_mode' => true,
+            'support_pin' => rand(1000,9999)
         ]);
         $user->refresh();
         $user->GivePermission(\App\Models\Permission::where('raw', 'stern.view')->first());
@@ -26,11 +27,12 @@ class UserSeeder extends Seeder {
             'name' => 'Jack Henderson',
             'phone_number' => '714-356-5395',
             'email' => 'jack@catalystvm.com',
-            'dark_mode' => true
+            'dark_mode' => true,
+            'support_pin' => rand(1000,9999)
         ]);
         $user->refresh();
         $user->GivePermission(\App\Models\Permission::where('raw', 'stern.view')->first());
 
-        User::factory(200)->create();
+        User::factory(10)->create();
     }
 }
