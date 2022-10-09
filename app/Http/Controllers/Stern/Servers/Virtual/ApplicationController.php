@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Stern\Servers;
+namespace App\Http\Controllers\Stern\Servers\Virtual;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class VirtualMachineController extends Controller {
+class ApplicationController extends Controller {
     
     /**
      * Handle an authentication attempt.
@@ -15,9 +15,9 @@ class VirtualMachineController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-        return Inertia::render('Stern/Server/VirtualMachine/Index', [
+        return Inertia::render('Stern/Server/Virtual/Application/Index', [
             
-        ]);          
+        ]);
     }
     
 }

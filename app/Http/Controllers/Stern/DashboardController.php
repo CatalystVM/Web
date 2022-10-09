@@ -15,9 +15,7 @@ class DashboardController extends Controller {
      * @return \Inertia\Inertia
      */
     public function index(Request $request) {
-        return Inertia::render('Stern/Dashboard', [
-            
-        ]);
+        return Inertia::render('Stern/Dashboard');
     }
 
 }

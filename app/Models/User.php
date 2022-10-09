@@ -52,7 +52,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'email',
         'password',
         'last_seen',
-        'dark_mode'
+        'dark_mode',
+        'support_pin'
     ];
 
     /**
@@ -63,6 +64,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
         'remember_token',
+        'support_pin'
     ];
 
     /**

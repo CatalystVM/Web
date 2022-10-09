@@ -23,7 +23,7 @@ class UsersController extends Controller {
         return Inertia::render('Stern/Users/Index', [
             'users' => User::query()
                 ->when($request->input('s'), function($query, $search) {
-                    return $query->where('email', 'like', "%{$search}%");
+                    return $query->where('email', 'like', "%{$search}%")->orWhere('name', 'like', "%{$search}%");
                 })
                 ->paginate(10)
                 ->withQueryString()
