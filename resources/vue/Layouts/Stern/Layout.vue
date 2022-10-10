@@ -100,7 +100,7 @@ export default {
         'sidebar': Sidebar
     },
     mounted() {
-        //document.getElementsByTagName('html')[0].className = this.$page.props.auth?.user?.dark_mode && !this.simple ? 'dark' : ''
+        document.getElementsByTagName('html')[0].className = this.$page.props.auth?.user?.dark_mode && !this.simple ? 'dark' : ''
 
         document.body.classList.add('m-0')
         document.body.classList.add('font-sans')

@@ -16,6 +16,7 @@ class LocationFactory extends Factory {
      */
     public function definition() {
         return [
+            'name' => fake()->unique()->company(),
             'city' => fake()->unique()->city(),
             'state' => fake()->unique()->state(),
             'country' => 'United States'

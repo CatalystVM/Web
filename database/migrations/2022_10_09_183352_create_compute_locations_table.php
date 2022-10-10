@@ -23,6 +23,7 @@ return new class extends Migration {
     public function up() {
         Schema::create($this->table, function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->string('name');
             $table->string('city', 24);
             $table->string('state', 24);
             $table->string('country', 24);

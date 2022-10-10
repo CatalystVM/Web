@@ -34,20 +34,21 @@
                                             :src="user.profile_img" />
                                     </div>
                                     <div class="flex flex-col justify-center">
-                                        <h6 class="mb-0 leading-normal text-sm">{{ user.name }}</h6>
+                                        <h6 class="mb-0 leading-normal text-sm text-slate-200">{{ user.name }}</h6>
                                         <p class="mb-0 leading-tight text-xs text-slate-400">{{ user.email }}</p>
                                     </div>
                                 </div>
                             </td>
                             <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                <p class="mb-0 font-semibold leading-tight text-xs">Manager</p>
+                                <p class="mb-0 font-semibold leading-tight text-xs text-slate-200">Manager</p>
                                 <p class="mb-0 leading-tight text-xs text-slate-400">Organization</p>
                             </td>
                             <td
-                                class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent text-slate-200">
                                 <span class="font-semibold leading-tight text-xs text-slate-400">23/04/18</span>
                             </td>
-                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <td
+                                class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent text-slate-200">
                                 <Link :href="route('stern::user', { 'user': user.id })"
                                     class="font-semibold leading-tight text-xs text-slate-400">
                                 Edit

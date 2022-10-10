@@ -1,10 +1,10 @@
 <template>
     <li class="mt-0.5 w-full" v-if="route_name">
         <Link :id="id" :href="submenu ? 'javascript:;' : route(route_name)" @click="handler"
-            class="ease-soft-in-out text-sm py-2.7 active after:ease-soft-in-out after:font-awesome-5-free my-0 mx-4 flex items-center whitespace-nowrap px-4 font-medium text-slate-500 shadow-none transition-colors after:ml-auto after:inline-block after:font-bold after:text-slate-800/50 after:antialiased after:transition-all after:duration-200"
+            class="ease-soft-in-out text-sm py-2.7 my-0 mx-4 flex items-center whitespace-nowrap px-4 font-medium shadow-none transition-colors"
             :class="{
-                'rounded-lg bg-white': (submenu ? ($page.props.route_current.includes(route_name)) : $page.props.route_current == route_name),
-                'dark:text-white dark:opacity-80 dark:after:text-white/50 dark:after:text-white': $page.props.auth?.user?.dark_mode
+                'rounded-lg bg-white': (this.submenu ? (this.$page.props.route_current.includes(this.route_name)) : this.$page.props.route_current == this.route_name),
+                'dark:text-white dark:opacity-80': $page.props.auth?.user?.dark_mode
             }" role="button">
 
         <div class="stroke-none shadow-soft-sm mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current p-2.5 text-center"
@@ -42,7 +42,8 @@ export default {
         name: String,
         route_name: String,
         icon: String,
-        submenu: Boolean
+        submenu: Boolean,
+        active: Boolean
     },
     data() {
         return {

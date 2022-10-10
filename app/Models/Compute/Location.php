@@ -36,7 +36,9 @@ class Location extends Model {
      */
     protected $fillable = [
         'name',
-        'description',
+        'city',
+        'state',
+        'country',
         'icon'
     ];
 
@@ -62,5 +64,11 @@ class Location extends Model {
     
     public function plans() {
         return $this->hasMany(Plan::class);
+    }
+
+    ///////////////////////////////////////
+
+    public function getImageAttribute() {
+        return '/storage/images/flags/'.strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $this->country))).'.svg';
     }
 }
