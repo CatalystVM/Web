@@ -3,7 +3,7 @@
         <Link :id="id" :href="submenu ? 'javascript:;' : route(route_name)" @click="handler"
             class="ease-soft-in-out text-sm py-2.7 my-0 mx-4 flex items-center whitespace-nowrap px-4 font-medium shadow-none transition-colors"
             :class="{
-                'rounded-lg bg-white': (this.submenu ? (this.$page.props.route_current.includes(this.route_name)) : this.$page.props.route_current == this.route_name),
+                'rounded-lg bg-white': (this.submenu ? ($page.props.route_current.includes(route_name)) : $page.props.route_current == route_name),
                 'dark:text-white dark:opacity-80': $page.props.auth?.user?.dark_mode
             }" role="button">
 
@@ -54,10 +54,10 @@ export default {
     methods: {
         handler(event) {
             if (this.isOpen) {
-                event.target.parentElement.children[1].classList.remove("max-h-0");
+                event.target.parentElement.children[1].classList?.remove("max-h-0");
                 this.isOpen = false
             } else {
-                event.target.parentElement.children[1].classList.add("max-h-0");
+                event.target.parentElement.children[1].classList?.add("max-h-0");
                 this.isOpen = true
             }
         }

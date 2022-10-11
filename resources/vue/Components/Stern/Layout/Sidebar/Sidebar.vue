@@ -20,8 +20,9 @@
             <ul class="flex flex-col pl-0 mb-0 list-none">
                 <sidebar-item name="Dashboard" route_name="stern::dashboard" :submenu=false
                     icon="fa-solid fa-briefcase"></sidebar-item>
-                <sidebar-item name="Accounts" route_name="stern::users" :submenu=false icon="fa-solid fa-users">
-
+                <sidebar-item name="Accounts" route_name="stern::users" :submenu=true icon="fa-solid fa-users">
+                    <sidebar-item-sub name="Customers" route_name="stern::test" />
+                    <sidebar-item-sub name="Staff" route_name="stern::test" />
                 </sidebar-item>
 
                 <sidebar-item name="Billing"></sidebar-item>
@@ -29,21 +30,19 @@
                 <sidebar-item name="Servers"></sidebar-item>
                 <sidebar-item name="Virtual Machine" route_name="stern::servers::virtual" :submenu=true
                     icon="fa-solid fa-server">
-                    <sidebar-subitem name="Nodes" route_name="stern::servers::virtual::nodes"></sidebar-subitem>
-                    <sidebar-subitem name="Applications" route_name="stern::servers::virtual::applications">
-                    </sidebar-subitem>
-                    <sidebar-subitem name="Images" route_name="stern::servers::virtual::images">
-                    </sidebar-subitem>
+                    <sidebar-item-sub name="Nodes" route_name="stern::servers::virtual::nodes" />
+                    <sidebar-item-sub name="Applications" route_name="stern::servers::virtual::applications" />
+                    <sidebar-item-sub name="Images" route_name="stern::servers::virtual::images" />
                 </sidebar-item>
                 <sidebar-item name="Compute Resources" route_name="stern::servers::compute" :submenu=true
                     icon="fa-solid fa-microchip-ai">
-                    <sidebar-subitem name="Nodes" route_name="stern::servers::compute::nodes"></sidebar-subitem>
-                    <sidebar-subitem name="Locations" route_name="stern::servers::compute::locations"></sidebar-subitem>
-                    <sidebar-subitem name="Plans" route_name="stern::servers::compute::plans"></sidebar-subitem>
+                    <sidebar-item-sub name="Nodes" route_name="stern::servers::compute::nodes" />
+                    <sidebar-item-sub name="Locations" route_name="stern::servers::compute::locations" />
+                    <sidebar-item-sub name="Plans" route_name="stern::servers::compute::plans" />
                 </sidebar-item>
                 <sidebar-item name="Backups" route_name="stern::test" :submenu=true icon="fa-solid fa-database">
-                    <sidebar-subitem name="Nodes" route_name="stern::test"></sidebar-subitem>
-                    <sidebar-subitem name="Backs" route_name="stern::test"></sidebar-subitem>
+                    <sidebar-item-sub name="Nodes" route_name="stern::test" />
+                    <sidebar-item-sub name="Backs" route_name="stern::test" />
                 </sidebar-item>
 
                 <sidebar-item name="Domains"></sidebar-item>
@@ -105,15 +104,14 @@
     </div>
 </template>
 
-<script>
-import Item from '@/Components/Stern/Layout/Sidebar/Sidebar-Item.vue'
-import ItemSub from '@/Components/Stern/Layout/Sidebar/Sidebar-SubItem.vue'
+<script setup>
+import { defineComponent } from 'vue'
+import SidebarItem from '@/Components/Stern/Layout/Sidebar/Sidebar-Item.vue'
+import SidebarItemSub from '@/Components/Stern/Layout/Sidebar/Sidebar-SubItem.vue'
 
-export default {
-    props: { simple: Boolean },
-    components: {
-        'sidebar-item': Item,
-        'sidebar-subitem': ItemSub
-    },
-}
+defineProps({ simple: Boolean })
+defineComponent({
+    SidebarItem,
+    SidebarItemSub
+})
 </script>

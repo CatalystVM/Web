@@ -52,7 +52,7 @@
             content="/build//assets/images/favicon/mstile-310x310.png" />
     </Head>
 
-    <sidebar v-if="sidebar" :simple=simple />
+    <Sidebar v-if="sidebar" :simple=simple />
 
     <main v-if="simple" class="mt-0 transition-all duration-200 ease-soft-in-out">
         <section>
@@ -62,20 +62,15 @@
 
     <main v-if="!simple"
         class="relative h-full max-h-screen transition-all duration-200 ease-soft-in-out xl:ml-68 rounded-xl">
-        <topbar v-if="topbar" :search=search />
+        <Topbar v-if="topbar" :search=search />
 
         <div class="w-full p-6 mx-auto">
             <slot />
         </div>
-
-
     </main>
 </template>
 
 <script>
-import TopBar from '@/Components/Stern/Layout/TopBar.vue'
-import Sidebar from '@/Components/Stern/Layout/Sidebar/Sidebar.vue'
-
 export default {
     props: {
         search: {
@@ -95,32 +90,28 @@ export default {
             default: false
         }
     },
-    components: {
-        'topbar': TopBar,
-        'sidebar': Sidebar
-    },
     mounted() {
-        document.getElementsByTagName('html')[0].className = this.$page.props.auth?.user?.dark_mode && !this.simple ? 'dark' : ''
+        //document.getElementsByTagName('html')[0].className = this.$page.props.auth?.user?.dark_mode && !this.simple ? 'dark' : ''
 
-        document.body.classList.add('m-0')
-        document.body.classList.add('font-sans')
-        document.body.classList.add('antialiased')
-        document.body.classList.add('font-normal')
-        document.body.classList.add('text-left')
+        document.body.classList?.add('m-0')
+        document.body.classList?.add('font-sans')
+        document.body.classList?.add('antialiased')
+        document.body.classList?.add('font-normal')
+        document.body.classList?.add('text-left')
 
         if (this.simple) {
-            document.body.classList.add('bg-white')
-            document.body.classList.add('dark:bg-white')
+            document.body.classList?.add('bg-white')
+            document.body.classList?.add('dark:bg-white')
         }
 
-        document.body.classList.add('leading-default')
-        document.body.classList.add('text-base')
-        document.body.classList.add('dark:bg-slate-950')
-        document.body.classList.add('bg-gray-50')
-        document.body.classList.add('text-slate-500')
+        document.body.classList?.add('leading-default')
+        document.body.classList?.add('text-base')
+        document.body.classList?.add('dark:bg-slate-950')
+        document.body.classList?.add('bg-gray-50')
+        document.body.classList?.add('text-slate-500')
 
         if (this.simple)
-            document.body.classList.add('dark:text-white/80')
+            document.body.classList?.add('dark:text-white/80')
 
         var channel = window.Echo.channel('my-channel')
         channel.listen('MyEvent', function (data) {
@@ -128,4 +119,14 @@ export default {
         })
     }
 }
+</script>
+
+<script setup>
+import { defineComponent } from 'vue'
+import Topbar from '@/Components/Stern/Layout/TopBar.vue'
+import Sidebar from '@/Components/Stern/Layout/Sidebar/Sidebar.vue'
+
+defineComponent({
+    Topbar, Sidebar
+})
 </script>

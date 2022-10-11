@@ -19,9 +19,3 @@
         $page.props.route_current.split('::').at(-1).replace('.', ' ') }}</h6>
     </nav>
 </template>
-
-<script>
-export default {
-
-}
-</script>

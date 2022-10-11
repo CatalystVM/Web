@@ -30,23 +30,17 @@
     </div>
 </template>
 
-<script>
-import Email from '@/Elements/Stern/Input/Email.vue'
-import Password from '@/Elements/Stern/Input/Password.vue'
-
-export default {
-    components: {
-        'input-email': Email,
-        'input-password': Password
-    }
-}
-</script>
-
 <script setup>
 import { useForm } from '@inertiajs/inertia-vue3'
 import { defineComponent } from 'vue'
 
-defineComponent({})
+import InputEmail from '@/Elements/Stern/Input/Email.vue'
+import InputPassword from '@/Elements/Stern/Input/Password.vue'
+
+defineComponent({
+    InputEmail,
+    InputPassword
+})
 
 let form = useForm({
     email: '',

@@ -8,55 +8,27 @@
         }">
         <div class="flex-auto px-0 pt-0 pb-2">
             <div class="p-0 overflow-x-auto">
-                <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
-                    <thead class="align-bottom">
-                        <tr>
-                            <th
-                                class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                                Name</th>
-                            <th
-                                class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                                Function</th>
-                            <th
-                                class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                                Employed</th>
-                            <th
-                                class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-gray-200 border-solid shadow-none tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                            </th>
-                        </tr>
-                    </thead>
+                <Table>
+                    <table-header>
+                        <table-header-column location="left">Name</table-header-column>
+                        <table-header-column location="left">Department</table-header-column>
+                        <table-header-column>Employed</table-header-column>
+                        <table-header-column></table-header-column>
+                    </table-header>
                     <tbody>
                         <tr v-for="user in users.data" :key="user.id">
-                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                <div class="flex px-2 py-1">
-                                    <div>
-                                        <img class="inline-flex items-center justify-center mr-4 text-white transition-all duration-200 ease-soft-in-out text-sm h-9 w-9 rounded-xl"
-                                            :src="user.profile_img" />
-                                    </div>
-                                    <div class="flex flex-col justify-center">
-                                        <h6 class="mb-0 leading-normal text-sm text-slate-200">{{ user.name }}</h6>
-                                        <p class="mb-0 leading-tight text-xs text-slate-400">{{ user.email }}</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                <p class="mb-0 font-semibold leading-tight text-xs text-slate-200">Manager</p>
-                                <p class="mb-0 leading-tight text-xs text-slate-400">Organization</p>
-                            </td>
-                            <td
-                                class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent text-slate-200">
-                                <span class="font-semibold leading-tight text-xs text-slate-400">23/04/18</span>
-                            </td>
-                            <td
-                                class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent text-slate-200">
+                            <table-column-multiline :image="user.profile_img" :line1="user.name" :line2="user.email" />
+                            <table-column-multiline line1="Manager" line2="Organization" />
+                            <table-column>23/04/18</table-column>
+                            <table-column>
                                 <Link :href="route('stern::user', { 'user': user.id })"
                                     class="font-semibold leading-tight text-xs text-slate-400">
                                 Edit
                                 </Link>
-                            </td>
+                            </table-column>
                         </tr>
                     </tbody>
-                </table>
+                </Table>
             </div>
         </div>
 
@@ -77,10 +49,24 @@ export default {
 </script>
 
 <script setup>
-import { Head } from '@inertiajs/inertia-vue3'
 import { defineComponent } from 'vue'
+
 import Pagination from '@/Components/Stern/Pagination.vue'
 
+import Table from '@/Elements/Stern/Table/Table.vue'
+import TableColumn from '@/Elements/Stern/Table/Column.vue'
+import TableColumnMultiline from '@/Elements/Stern/Table/ColumnMultiLine.vue'
+import TableHeader from '@/Elements/Stern/Table/Header/Head.vue'
+import TableHeaderColumn from '@/Elements/Stern/Table/Header/Column.vue'
+
 defineProps({ users: Object })
-defineComponent({ Head, Pagination })
+defineComponent({
+    Pagination,
+
+    Table,
+    TableColumn,
+    TableColumnMultiline,
+    TableHeader,
+    TableHeaderColumn
+})
 </script>

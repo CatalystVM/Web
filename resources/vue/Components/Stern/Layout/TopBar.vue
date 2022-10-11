@@ -58,15 +58,13 @@
     </nav>
 </template>
 
-<script>
+<script setup>
+import { defineComponent } from 'vue'
 import Search from '@/Components/Stern/Form/Search.vue'
 import Breadcrubs from '@/Components/Stern/Layout/Breadcrubs.vue'
 
-export default {
-    components: { Search, Breadcrubs },
-    props: {
-        search: Boolean
-    }
-}
-
+defineProps({ search: Boolean })
+defineComponent({
+    Search, Breadcrubs
+})
 </script>
