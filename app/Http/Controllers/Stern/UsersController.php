@@ -22,7 +22,14 @@ class UsersController extends Controller {
                     return $query->whereRelation('permissions', 'permission_id', '=', Permission::where('raw', 'stern.view')->first()->id);
                 })*/
                 ->when($request->input('search'), function($query, $search) {
-                    return $query->where('email', 'like', "%{$search}%")->orWhere('name', 'like', "%{$search}%");
+                    return $query->where('email', 'like', "%{$search}%")
+                        ->orWhere('name', 'like', "%{$search}%")
+                        ->orWhere(function($query) use ($search) {
+                            $permission = Permission::where('raw', $search)->first();
+                            if ($permission)
+                                return $query->whereRelation('permissions', 'permission_id', '=', $permission->id);
+                            return $query;
+                        });
                 })
                 ->paginate(10)
                 ->withQueryString()
