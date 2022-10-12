@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Stern;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -15,14 +16,12 @@ class UsersController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, User $user = null) {
-        if ($user) {
-            //return view("stern.pages.account")->with('account', $user);
-        }
-
+    public function index(Request $request) {
         return Inertia::render('Stern/Users/Index', [
-            'users' => User::query()
-                ->when($request->input('s'), function($query, $search) {
+            'users' => User::query()/*->where(function($query) {
+                    return $query->whereRelation('permissions', 'permission_id', '=', Permission::where('raw', 'stern.view')->first()->id);
+                })*/
+                ->when($request->input('search'), function($query, $search) {
                     return $query->where('email', 'like', "%{$search}%")->orWhere('name', 'like', "%{$search}%");
                 })
                 ->paginate(10)
@@ -34,8 +33,18 @@ class UsersController extends Controller {
                     'profile_img' => $user->GetProfileImage(),
                     'online' => cache()->has('is_online' . $user->id)
                 ]),
-            'filters' => $request->only(['s'])
+            'filters' => $request->only(['search', 'staff'])
         ]);
+    }
+
+    /**
+     * Handle an authentication attempt.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request, User $user = null) {
+
     }
     
 }

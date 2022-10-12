@@ -20,11 +20,11 @@ let props = defineProps({
     route_current: String
 })
 
-//let searchForm = ref(props.filters?.s)
+//let searchForm = ref(props.filters?.search)
 let searchForm = ref('')
 
 watch(searchForm, debounce((value) => {
-    Inertia.get(route().current(), { s: value }, {
+    Inertia.get(route().current(), { search: value }, {
         preserveState: true,
         replace: true
     })

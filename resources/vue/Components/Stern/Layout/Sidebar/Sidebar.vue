@@ -20,10 +20,7 @@
             <ul class="flex flex-col pl-0 mb-0 list-none">
                 <sidebar-item name="Dashboard" route_name="stern::dashboard" :submenu=false
                     icon="fa-solid fa-briefcase"></sidebar-item>
-                <sidebar-item name="Accounts" route_name="stern::users" :submenu=true icon="fa-solid fa-users">
-                    <sidebar-item-sub name="Customers" route_name="stern::test" />
-                    <sidebar-item-sub name="Staff" route_name="stern::test" />
-                </sidebar-item>
+                <sidebar-item name="Accounts" route_name="stern::users" :submenu=false icon="fa-solid fa-users" />
 
                 <sidebar-item name="Billing"></sidebar-item>
 

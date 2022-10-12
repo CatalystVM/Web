@@ -1,6 +1,6 @@
 <template>
     <li class="mt-0.5 w-full" v-if="route_name">
-        <Link :id="id" :href="submenu ? 'javascript:;' : route(route_name)" @click="handler"
+        <Link :id="id" :href="submenu ? 'javascript:;' : route(route_name, route_args)" @click="handler"
             class="ease-soft-in-out text-sm py-2.7 my-0 mx-4 flex items-center whitespace-nowrap px-4 font-medium shadow-none transition-colors"
             :class="{
                 'rounded-lg bg-white': (this.submenu ? ($page.props.route_current.includes(route_name)) : $page.props.route_current == route_name),
@@ -41,6 +41,10 @@ export default {
     props: {
         name: String,
         route_name: String,
+        route_args: {
+            type: Array,
+            default: {}
+        },
         icon: String,
         submenu: Boolean,
         active: Boolean

@@ -98,16 +98,16 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     ////////////////////////////////////////
 
-    public function HasPermission(string $permission)  : bool {
-        if ($permission == null) 
+    public function HasPermission(string $permissionValue)  : bool {
+        if ($permissionValue == null) 
             return false;
 
-        $p = Permission::where('raw', $permission)->first();
-        if (!$p) 
+        $permission = Permission::where('raw', $permissionValue)->first();
+        if (!$permission) 
             return false;
 
         foreach ($this->permissions as $perm) {
-            if ($perm->permission->id == $p->id)
+            if ($perm->permission->id == $permission->id)
                 return true;
         }
         return false;
@@ -146,6 +146,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     }
 
     ////////////////////////////////////////
+
+    public function IsStaff() {
+        return $this->HasPermission('stern.view');
+    }
 
     public function GetProfileImage() : string {
         $gravatar = new Gravatar();
