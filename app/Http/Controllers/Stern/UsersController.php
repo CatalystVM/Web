@@ -37,8 +37,9 @@ class UsersController extends Controller {
                     'id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
-                    'profile_img' => $user->GetProfileImage(),
-                    'online' => cache()->has('is_online' . $user->id)
+                    'created_at'=> $user->created_at,
+                    'profile_image' => $user->profile_image,
+                    'online' => $user->online
                 ]),
             'filters' => $request->only(['search', 'staff'])
         ]);

@@ -96,6 +96,14 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return explode(' ', $this->name)[1];
     }
 
+    public function getProfileImageAttribute() : string {
+        return $this->GetProfileImage();
+    }
+
+    public function getOnlineAttribute() : bool {
+        return cache()->has('is_online' . $this->id);
+    }
+
     ////////////////////////////////////////
 
     public function HasPermission(string $permissionValue)  : bool {

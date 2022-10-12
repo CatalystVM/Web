@@ -17,9 +17,10 @@
                     </table-header>
                     <tbody>
                         <tr v-for="user in users.data" :key="user.id">
-                            <table-column-multiline :image="user.profile_img" :line1="user.name" :line2="user.email" />
+                            <table-column-multiline :image="user.profile_image" :line1="user.name"
+                                :line2="user.email" />
                             <table-column-multiline line1="Manager" line2="Organization" />
-                            <table-column>23/04/18</table-column>
+                            <table-column>{{ user.created_at }}</table-column>
                             <table-column>
                                 <Link :href="route('stern::user', { 'user': user.id })"
                                     class="font-semibold leading-tight text-xs text-slate-400">
