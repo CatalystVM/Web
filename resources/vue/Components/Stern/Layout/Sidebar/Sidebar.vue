@@ -35,7 +35,7 @@
                 </sidebar-item>
                 <sidebar-item name="Backups" route_name="stern::test" :submenu=true icon="fa-solid fa-database">
                     <sidebar-item-sub name="Nodes" route_name="stern::test" />
-                    <sidebar-item-sub name="Backs" route_name="stern::test" />
+                    <sidebar-item-sub name="Backups" route_name="stern::test" />
                 </sidebar-item>
 
                 <sidebar-item name="Domains"></sidebar-item>
