@@ -19,9 +19,8 @@
                     </table-header>
                     <tbody>
                         <tr v-for="node in nodes.data" :key="node.id">
-                            <table-column-multiline :image="node.image" :line1="node.hostname"
-                                :line2="node.location.city + ', ' + node.location.state"></table-column-multiline>
-                            <table-column>{{ node.location.name }}</table-column>
+                            <table-column>{{ node.hostname }}</table-column>
+                            <table-column></table-column>
                             <table-column>54%</table-column>
                             <table-column>12%</table-column>
                             <table-column>0</table-column>

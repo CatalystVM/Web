@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Stern\Servers\Compute;
+namespace App\Http\Controllers\Stern\Servers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Compute\Node;
+use App\Models\ComputeNode;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-use Illuminate\Support\Facades\Storage;
-
-class NodeController extends Controller {
+class ComputeNodeController extends Controller {
     
     /**
      * Handle an authentication attempt.
@@ -18,19 +16,16 @@ class NodeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-        return Inertia::render('Stern/Server/Compute/Node/Index', [
-            'nodes' => Node::query()
+        return Inertia::render('Stern/Server/ComputeNode/Index', [
+            'nodes' => ComputeNode::query()
                 ->when($request->input('s'), function($query, $search) {
-                    return $query->where('hostname', 'like', "%{$search}%")
-                        ->orWhere('solus_compute_id', $search);
+                    return $query->where('hostname', 'like', "%{$search}%");
                 })
                 ->paginate(10)
                 ->withQueryString()
                 ->through(fn($node) => [
                     'id' => $node->id,
                     'hostname' => $node->hostname,
-                    'image' => $node->location->image,
-                    'location' => $node->location->only(['name', 'city', 'state', 'country'])
                 ]),
             'filters' => $request->only(['s'])
         ]);    

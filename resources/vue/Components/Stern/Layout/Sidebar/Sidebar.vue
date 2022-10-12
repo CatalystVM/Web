@@ -31,12 +31,8 @@
                     <sidebar-item-sub name="Applications" route_name="stern::servers::virtual::applications" />
                     <sidebar-item-sub name="Images" route_name="stern::servers::virtual::images" />
                 </sidebar-item>
-                <sidebar-item name="Compute Resources" route_name="stern::servers::compute" :submenu=true
-                    icon="fa-solid fa-microchip-ai">
-                    <sidebar-item-sub name="Nodes" route_name="stern::servers::compute::nodes" />
-                    <sidebar-item-sub name="Locations" route_name="stern::servers::compute::locations" />
-                    <sidebar-item-sub name="Plans" route_name="stern::servers::compute::plans" />
-                </sidebar-item>
+                <sidebar-item name="Compute Resources" route_name="stern::servers::compute::nodes" :submenu=false
+                    icon="fa-solid fa-microchip-ai" />
                 <sidebar-item name="Backups" route_name="stern::test" :submenu=true icon="fa-solid fa-database">
                     <sidebar-item-sub name="Nodes" route_name="stern::test" />
                     <sidebar-item-sub name="Backs" route_name="stern::test" />

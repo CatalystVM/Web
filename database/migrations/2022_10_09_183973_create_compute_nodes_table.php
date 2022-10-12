@@ -23,16 +23,10 @@ return new class extends Migration {
     public function up() {
         Schema::create($this->table, function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('location_id');
-            $table->integer('solus_compute_id');
             $table->string('hostname', 64);
-            $table->integer('agent_port')->default(8080);
+            $table->integer('ssh_port')->default(22);
             $table->timestamps();
             $table->softDeletes();
-        });
-
-        Schema::table($this->table, function (Blueprint $table) {
-            $table->foreign('location_id')->references('id')->on('compute_locations')->onDelete('cascade');
         });
     }
 

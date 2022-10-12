@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Compute\Location;
-use App\Models\Compute\Node;
-use App\Models\Compute\Plan;
+use App\Models\ComputeNode;
 
 class ComputeSeeder extends Seeder {
 
@@ -15,8 +13,6 @@ class ComputeSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        Location::factory(10)->create();
-        Plan::factory(10)->create();
-        Node::factory(10)->create();
+        ComputeNode::factory(10)->create();
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Compute;
+namespace App\Models;
 
 use App\Models\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Plan extends Model {
+class ComputeNode extends Model {
     use HasFactory;
 
     /**
@@ -13,7 +13,7 @@ class Plan extends Model {
      *
      * @var string
      */
-    protected $table = 'compute_plans';
+    protected $table = 'compute_nodes';
 
     /**
      * The primary key for the model.
@@ -35,19 +35,8 @@ class Plan extends Model {
      * @var array<int, string>
      */
     protected $fillable = [
-        'location_id',
-        'solus_plan_id',
-        'name',
-        'storage_type',
-        'image_format',
-        'storage_capacity',
-        'ram_capacity',
-        'cpu_cores',
-        'can_create_backups',
-        'can_create_snapshots',
-        'is_visible',
-        'backup_price',
-        'price'
+        'hostname',
+        'ssh_port'
     ];
 
     /**
@@ -56,8 +45,7 @@ class Plan extends Model {
      * @var array<int, string>
      */
     protected $hidden = [
-        'location_id',
-        'solus_plan_id'
+        
     ];
 
     /**
@@ -66,12 +54,9 @@ class Plan extends Model {
      * @var array<string, string>
      */
     protected $casts = [
-        'price' => 'json'
+        
     ];
 
     ////////////////////////////////////////
     
-    public function location() {
-        return $this->belongsTo(Location::class);
-    }
 }

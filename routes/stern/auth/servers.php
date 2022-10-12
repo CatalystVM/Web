@@ -13,17 +13,9 @@ Route::group(['namespace' => 'Servers', 'as' => 'servers::', 'prefix' => 'server
         });
     });
 
-    Route::group(['namespace' => 'Compute', 'as' => 'compute::', 'prefix' => 'compute-resources'], function() {
-        Route::controller('NodeController')->group(function() {
+    Route::group(['as' => 'compute::', 'prefix' => 'compute-resources'], function() {
+        Route::controller('ComputeNodeController')->group(function() {
             Route::get('/nodes', ['as' => 'nodes', 'uses' => 'index']);
-        });
-
-        Route::controller('LocationController')->group(function() {
-            Route::get('/locations', ['as' => 'locations', 'uses' => 'index']);
-        });
-
-        Route::controller('PlanController')->group(function() {
-            Route::get('/plans', ['as' => 'plans', 'uses' => 'index']);
         });
     });
 
