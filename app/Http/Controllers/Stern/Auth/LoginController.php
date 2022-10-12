@@ -15,7 +15,7 @@ class LoginController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request) {
+    public function index(Request $request) {
         return Inertia::render('Stern/Auth/Login/Index'); 
     }
 
@@ -23,7 +23,7 @@ class LoginController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function post(Request $request) {
         $credentials = $request->validate([
             'email' => ['required', 'email', 'exists:users,email'],
             'password' => ['required', 

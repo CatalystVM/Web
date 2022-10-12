@@ -25,14 +25,14 @@
                 <sidebar-item name="Billing"></sidebar-item>
 
                 <sidebar-item name="Servers"></sidebar-item>
+                <sidebar-item name="Compute Resources" route_name="stern::servers::compute::nodes" :submenu=false
+                    icon="fa-solid fa-microchip-ai" />
                 <sidebar-item name="Virtual Machine" route_name="stern::servers::virtual" :submenu=true
                     icon="fa-solid fa-server">
                     <sidebar-item-sub name="Nodes" route_name="stern::servers::virtual::nodes" />
                     <sidebar-item-sub name="Applications" route_name="stern::servers::virtual::applications" />
                     <sidebar-item-sub name="Images" route_name="stern::servers::virtual::images" />
                 </sidebar-item>
-                <sidebar-item name="Compute Resources" route_name="stern::servers::compute::nodes" :submenu=false
-                    icon="fa-solid fa-microchip-ai" />
                 <sidebar-item name="Backups" route_name="stern::test" :submenu=true icon="fa-solid fa-database">
                     <sidebar-item-sub name="Nodes" route_name="stern::test" />
                     <sidebar-item-sub name="Backs" route_name="stern::test" />
