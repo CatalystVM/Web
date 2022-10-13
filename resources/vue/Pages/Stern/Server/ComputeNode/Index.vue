@@ -1,11 +1,14 @@
 <template>
 
-    <Head title="Accounts" />
+    <Head title="Compute Nodes" />
 
     <div class="relative flex flex-col w-full min-w-0 mb-0 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border"
         :class="{
             'dark:bg-gray-950 dark:shadow-soft-dark-xl': $page.props.auth?.user?.dark_mode
         }">
+
+        <ButtonLink href="#">Add</ButtonLink>
+
         <div class="flex-auto px-0 pt-0 pb-2">
             <div class="p-0 overflow-x-auto">
                 <Table>
@@ -61,6 +64,8 @@ import TableColumnMultiline from '@/Elements/Stern/Table/ColumnMultiLine.vue'
 import TableHeader from '@/Elements/Stern/Table/Header/Head.vue'
 import TableHeaderColumn from '@/Elements/Stern/Table/Header/Column.vue'
 
+import ButtonLink from '@/Elements/Stern/ButtonLink.vue'
+
 defineProps({ nodes: Object })
 defineComponent({
     Pagination,
@@ -69,6 +74,8 @@ defineComponent({
     TableColumn,
     TableColumnMultiline,
     TableHeader,
-    TableHeaderColumn
+    TableHeaderColumn,
+
+    ButtonLink
 })
 </script>

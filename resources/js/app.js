@@ -1,3 +1,4 @@
+import 'flowbite'
 import _ from 'lodash'
 window._ = _
 
@@ -86,6 +87,10 @@ createInertiaApp({
 
     title: title => `${title} | CatalystVM`
 })
+
+const opts = {}
+
+export default new Vuetify(opts)
 
 /*
 InertiaProgress.init({

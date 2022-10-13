@@ -15,7 +15,8 @@ Route::group(['namespace' => 'Servers', 'as' => 'servers::', 'prefix' => 'server
 
     Route::group(['as' => 'compute::', 'prefix' => 'compute-resources'], function() {
         Route::controller('ComputeNodeController')->group(function() {
-            Route::get('/nodes', ['as' => 'nodes', 'uses' => 'index']);
+            Route::get('/', ['as' => 'nodes', 'uses' => 'index']);
+            Route::get('/add', ['as' => 'add', 'uses' => 'add']);
         });
     });
 
