@@ -1,4 +1,12 @@
 <!-- eslint-disable vue/no-v-text-v-html-on-component -->
+<script>
+export default {
+    props: {
+        links: Array
+    }
+}
+</script>
+
 <template>
     <div class="m-6">
         <nav aria-label="Page navigation example">
@@ -16,13 +24,4 @@
             </ul>
         </nav>
     </div>
-
 </template>
-
-<script>
-export default {
-    props: {
-        links: Array
-    }
-}
-</script>

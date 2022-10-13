@@ -1,7 +1,24 @@
+<script>
+export default {
+    props: {
+        search: Boolean
+    }
+}
+</script>
+
+<script setup>
+import { defineComponent } from 'vue'
+import Search from '@/Components/Stern/Form/Search.vue'
+import Breadcrubs from '@/Components/Stern/Layout/Breadcrubs.vue'
+
+defineComponent({
+    Search, Breadcrubs
+})
+</script>
+
 <template>
-    <nav navbar-main=""
-        class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 mt-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start"
-        navbar-scroll="true">
+    <nav
+        class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 mt-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start">
         <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
             <Breadcrubs />
 
@@ -57,14 +74,3 @@
         </div>
     </nav>
 </template>
-
-<script setup>
-import { defineComponent } from 'vue'
-import Search from '@/Components/Stern/Form/Search.vue'
-import Breadcrubs from '@/Components/Stern/Layout/Breadcrubs.vue'
-
-defineProps({ search: Boolean })
-defineComponent({
-    Search, Breadcrubs
-})
-</script>

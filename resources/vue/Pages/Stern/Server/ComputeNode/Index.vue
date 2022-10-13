@@ -40,13 +40,13 @@
 </template>
 
 <script>
-import Layout from '@/Layouts/Stern/Layout.vue'
+import LayoutAuthenticated from '@/Layouts/Stern/LayoutAuthenticated.vue'
+
 export default {
-    layout: (h, page) => {
-        return h(Layout, {
-            search: true, topbar: true, sidebar: true
-        }, () => page)
-    }
+    props: {
+        nodes: Object
+    },
+    layout: (h, page) => { return h(LayoutAuthenticated, { search: true }, () => page) }
 }
 </script>
 
@@ -61,7 +61,6 @@ import TableColumnMultiline from '@/Elements/Stern/Table/ColumnMultiLine.vue'
 import TableHeader from '@/Elements/Stern/Table/Header/Head.vue'
 import TableHeaderColumn from '@/Elements/Stern/Table/Header/Column.vue'
 
-defineProps({ nodes: Object })
 defineComponent({
     Pagination,
 

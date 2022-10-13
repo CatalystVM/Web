@@ -1,14 +1,8 @@
-<template>
-
-    <Head title="Forgot Password" />
-
-</template>
-
 <script>
-import Layout from '@/Layouts/Stern/Layout.vue'
+import LayoutGuest from '@/Layouts/Stern/LayoutGuest.vue'
 
 export default {
-    layout: (h, page) => { return h(Layout, { sidebar: true, simple: true }, () => page) }
+    layout: (h, page) => { return h(LayoutGuest, { simple: true }, () => page) }
 }
 </script>
 
@@ -17,3 +11,9 @@ import { defineComponent } from 'vue'
 
 defineComponent({})
 </script>
+
+<template>
+
+    <Head title="Forgot Password" />
+
+</template>

@@ -1,3 +1,36 @@
+<script>
+import LayoutAuthenticated from '@/Layouts/Stern/LayoutAuthenticated.vue'
+
+export default {
+    props: {
+        users: Object
+    },
+    layout: (h, page) => { return h(LayoutAuthenticated, { search: true }, () => page) }
+}
+</script>
+
+<script setup>
+import { defineComponent } from 'vue'
+
+import Pagination from '@/Components/Stern/Pagination.vue'
+
+import Table from '@/Elements/Stern/Table/Table.vue'
+import TableColumn from '@/Elements/Stern/Table/Column.vue'
+import TableColumnMultiline from '@/Elements/Stern/Table/ColumnMultiLine.vue'
+import TableHeader from '@/Elements/Stern/Table/Header/Head.vue'
+import TableHeaderColumn from '@/Elements/Stern/Table/Header/Column.vue'
+
+defineComponent({
+    Pagination,
+
+    Table,
+    TableColumn,
+    TableColumnMultiline,
+    TableHeader,
+    TableHeaderColumn
+})
+</script>
+
 <template>
 
     <Head title="Accounts" />
@@ -36,38 +69,3 @@
         <Pagination :links="users.links" />
     </div>
 </template>
-
-<script>
-import Layout from '@/Layouts/Stern/Layout.vue'
-
-export default {
-    layout: (h, page) => {
-        return h(Layout, {
-            search: true, topbar: true, sidebar: true
-        }, () => page)
-    }
-}
-</script>
-
-<script setup>
-import { defineComponent } from 'vue'
-
-import Pagination from '@/Components/Stern/Pagination.vue'
-
-import Table from '@/Elements/Stern/Table/Table.vue'
-import TableColumn from '@/Elements/Stern/Table/Column.vue'
-import TableColumnMultiline from '@/Elements/Stern/Table/ColumnMultiLine.vue'
-import TableHeader from '@/Elements/Stern/Table/Header/Head.vue'
-import TableHeaderColumn from '@/Elements/Stern/Table/Header/Column.vue'
-
-defineProps({ users: Object })
-defineComponent({
-    Pagination,
-
-    Table,
-    TableColumn,
-    TableColumnMultiline,
-    TableHeader,
-    TableHeaderColumn
-})
-</script>

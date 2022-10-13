@@ -1,3 +1,52 @@
+<script>
+export default {
+    props: {
+        search: {
+            type: Boolean,
+            default: false
+        }
+    },
+    mounted() {
+        //document.getElementsByTagName('html')[0].className = this.$page.props.auth?.user?.dark_mode && !this.simple ? 'dark' : ''
+
+        document.body.classList?.add('m-0')
+        document.body.classList?.add('font-sans')
+        document.body.classList?.add('antialiased')
+        document.body.classList?.add('font-normal')
+        document.body.classList?.add('text-left')
+
+        if (this.simple) {
+            document.body.classList?.add('bg-white')
+            document.body.classList?.add('dark:bg-white')
+        }
+
+        document.body.classList?.add('leading-default')
+        document.body.classList?.add('text-base')
+        document.body.classList?.add('dark:bg-slate-950')
+        document.body.classList?.add('bg-gray-50')
+        document.body.classList?.add('text-slate-500')
+
+        if (this.simple)
+            document.body.classList?.add('dark:text-white/80')
+
+        var channel = window.Echo.channel('my-channel')
+        channel.listen('MyEvent', function (data) {
+            alert(JSON.stringify(data))
+        })
+    }
+}
+</script>
+
+<script setup>
+import { defineComponent } from 'vue'
+import Topbar from '@/Components/Stern/Layout/TopBar.vue'
+import Sidebar from '@/Components/Stern/Layout/Sidebar/Sidebar.vue'
+
+defineComponent({
+    Topbar, Sidebar
+})
+</script>
+
 <template>
 
     <Head>
@@ -52,81 +101,13 @@
             content="/build//assets/images/favicon/mstile-310x310.png" />
     </Head>
 
-    <Sidebar v-if="sidebar" :simple=simple />
+    <Sidebar />
 
-    <main v-if="simple" class="mt-0 transition-all duration-200 ease-soft-in-out">
-        <section>
-            <slot />
-        </section>
-    </main>
-
-    <main v-if="!simple"
-        class="relative h-full max-h-screen transition-all duration-200 ease-soft-in-out xl:ml-68 rounded-xl">
-        <Topbar v-if="topbar" :search=search />
+    <main class="relative h-full max-h-screen transition-all duration-200 ease-soft-in-out xl:ml-68 rounded-xl">
+        <Topbar :search=search />
 
         <div class="w-full p-6 mx-auto">
             <slot />
         </div>
     </main>
 </template>
-
-<script>
-export default {
-    props: {
-        search: {
-            type: Boolean,
-            default: false
-        },
-        topbar: {
-            type: Boolean,
-            default: true
-        },
-        sidebar: {
-            type: Boolean,
-            default: true
-        },
-        simple: {
-            type: Boolean,
-            default: false
-        }
-    },
-    mounted() {
-        //document.getElementsByTagName('html')[0].className = this.$page.props.auth?.user?.dark_mode && !this.simple ? 'dark' : ''
-
-        document.body.classList?.add('m-0')
-        document.body.classList?.add('font-sans')
-        document.body.classList?.add('antialiased')
-        document.body.classList?.add('font-normal')
-        document.body.classList?.add('text-left')
-
-        if (this.simple) {
-            document.body.classList?.add('bg-white')
-            document.body.classList?.add('dark:bg-white')
-        }
-
-        document.body.classList?.add('leading-default')
-        document.body.classList?.add('text-base')
-        document.body.classList?.add('dark:bg-slate-950')
-        document.body.classList?.add('bg-gray-50')
-        document.body.classList?.add('text-slate-500')
-
-        if (this.simple)
-            document.body.classList?.add('dark:text-white/80')
-
-        var channel = window.Echo.channel('my-channel')
-        channel.listen('MyEvent', function (data) {
-            alert(JSON.stringify(data))
-        })
-    }
-}
-</script>
-
-<script setup>
-import { defineComponent } from 'vue'
-import Topbar from '@/Components/Stern/Layout/TopBar.vue'
-import Sidebar from '@/Components/Stern/Layout/Sidebar/Sidebar.vue'
-
-defineComponent({
-    Topbar, Sidebar
-})
-</script>

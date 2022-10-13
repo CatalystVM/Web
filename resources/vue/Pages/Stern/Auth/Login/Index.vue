@@ -90,7 +90,7 @@
 </template>
 
 <script>
-import Layout from '@/Layouts/Stern/Layout.vue'
+import LayoutGuest from '@/Layouts/Stern/LayoutGuest.vue'
 import LoginForm from '@/Components/Stern/Form/Auth/Login.vue'
 
 export default {
@@ -98,6 +98,6 @@ export default {
         'form-login': LoginForm
     },
 
-    layout: (h, page) => { return h(Layout, { sidebar: true, simple: true }, () => page) }
+    layout: (h, page) => { return h(LayoutGuest, { simple: true }, () => page) }
 }
 </script>

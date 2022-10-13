@@ -1,3 +1,28 @@
+<script setup>
+import { useForm } from '@inertiajs/inertia-vue3'
+import { defineComponent } from 'vue'
+
+import InputEmail from '@/Elements/Stern/Input/Email.vue'
+import InputPassword from '@/Elements/Stern/Input/Password.vue'
+
+defineComponent({
+    InputEmail,
+    InputPassword
+})
+
+let form = useForm({
+    email: '',
+    password: '',
+    rememberMe: ''
+})
+
+let submit = () => {
+    form.post(route('stern::auth::login::post'), {
+        wantsJson: true
+    })
+}
+</script>
+
 <template>
     <div class="flex-auto p-6 text-center">
         <form @submit.prevent="submit" role="form text-left">
@@ -29,28 +54,3 @@
         </form>
     </div>
 </template>
-
-<script setup>
-import { useForm } from '@inertiajs/inertia-vue3'
-import { defineComponent } from 'vue'
-
-import InputEmail from '@/Elements/Stern/Input/Email.vue'
-import InputPassword from '@/Elements/Stern/Input/Password.vue'
-
-defineComponent({
-    InputEmail,
-    InputPassword
-})
-
-let form = useForm({
-    email: '',
-    password: '',
-    rememberMe: ''
-})
-
-let submit = () => {
-    form.post(route('stern::auth::login::post'), {
-        wantsJson: true
-    })
-}
-</script>

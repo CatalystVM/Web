@@ -1,3 +1,12 @@
+<script>
+export default {
+    props: {
+        name: String,
+        route_name: String
+    }
+}
+</script>
+
 <template>
     <li class="w-full">
         <Link
@@ -13,13 +22,3 @@
         </Link>
     </li>
 </template>
-
-<script>
-export default {
-    props: {
-        name: String,
-        route_name: String
-    }
-
-}
-</script>

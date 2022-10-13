@@ -1,3 +1,13 @@
+<script>
+export default {
+    props: {
+        image: String,
+        line1: String,
+        line2: String
+    },
+}
+</script>
+
 <template>
     <td v-if="image" class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
         <div class="flex px-2 py-1">
@@ -16,13 +26,3 @@
         <p v-if="line2" class="mb-0 leading-tight text-xs text-slate-400">{{ line2 }}</p>
     </td>
 </template>
-
-<script>
-export default {
-    props: {
-        image: String,
-        line1: String,
-        line2: String
-    },
-}
-</script>

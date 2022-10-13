@@ -1,3 +1,9 @@
+<script>
+export default {
+
+}
+</script>
+
 <template>
     <td
         class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent text-slate-200">
@@ -6,9 +12,3 @@
         </span>
     </td>
 </template>
-
-<script>
-export default {
-
-}
-</script>

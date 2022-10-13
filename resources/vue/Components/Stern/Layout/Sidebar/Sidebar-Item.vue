@@ -1,3 +1,37 @@
+<script>
+export default {
+    props: {
+        name: String,
+        route_name: String,
+        route_args: {
+            type: Array,
+            default: {}
+        },
+        icon: String,
+        submenu: Boolean,
+        active: Boolean
+    },
+    data() {
+        return {
+            id: Math.random().toString(36).substring(2, 7),
+            isOpen: this.submenu ? (this.$page.props.route_current.includes(this.route_name)) : this.$page.props.route_current == this.route_name
+        }
+    },
+    methods: {
+        handler(event) {
+            if (this.isOpen) {
+                event.target.parentElement.children[1].classList?.remove("max-h-0");
+                this.isOpen = false
+            } else {
+                event.target.parentElement.children[1].classList?.add("max-h-0");
+                this.isOpen = true
+            }
+        }
+    }
+
+}
+</script>
+
 <template>
     <li class="mt-0.5 w-full" v-if="route_name">
         <Link :id="id" :href="submenu ? 'javascript:;' : route(route_name, route_args)" @click="handler"
@@ -35,37 +69,3 @@
         }">{{ name }}</h6>
     </li>
 </template>
-
-<script>
-export default {
-    props: {
-        name: String,
-        route_name: String,
-        route_args: {
-            type: Array,
-            default: {}
-        },
-        icon: String,
-        submenu: Boolean,
-        active: Boolean
-    },
-    data() {
-        return {
-            id: Math.random().toString(36).substring(2, 7),
-            isOpen: this.submenu ? (this.$page.props.route_current.includes(this.route_name)) : this.$page.props.route_current == this.route_name
-        }
-    },
-    methods: {
-        handler(event) {
-            if (this.isOpen) {
-                event.target.parentElement.children[1].classList?.remove("max-h-0");
-                this.isOpen = false
-            } else {
-                event.target.parentElement.children[1].classList?.add("max-h-0");
-                this.isOpen = true
-            }
-        }
-    }
-
-}
-</script>
