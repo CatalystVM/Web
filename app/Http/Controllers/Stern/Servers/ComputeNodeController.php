@@ -30,15 +30,5 @@ class ComputeNodeController extends Controller {
             'filters' => $request->only(['s'])
         ]);    
     }
-
-    /**
-     * Handle an authentication attempt.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function add(Request $request) {
-        return Inertia::render('Stern/Server/ComputeNode/Add');
-    }
     
 }

@@ -1,9 +1,3 @@
-// This is just a sample script. Paste your real code (javascript or HTML) here.
-if ('this_is' == /an_example/) {
-    of_beautifier();
-} else {
-    var a = b ? (c % d) : e[f];
-}
 const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
@@ -1529,7 +1523,7 @@ module.exports = {
     },
     variantOrder: ["first", "last", "odd", "even", "visited", "checked", "empty", "read-only", "group-hover", "group-focus", "focus-within", "hover", "focus", "focus-visible", "active", "disabled"],
 
-    plugins: [\
+    plugins: [
         plugin(function({
             addComponents,
             addUtilities
