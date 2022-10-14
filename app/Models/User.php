@@ -160,10 +160,16 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     }
 
     public function GetProfileImage() : string {
+        $email = $this->email;
+        if (str($this->email).contains('+')) {
+            $email = explode('+', $this->email);
+            $email = $email[0].'@'.explode('@', $this->email)[1];
+        }
+
         $gravatar = new Gravatar();
         $gravatar->EnableSecureImages();
         $gravatar->SetDefaultImage('mm')->SetAvatarSize(150);
         $gravatar->SetMaxRating('pg');
-        return $gravatar->Get($this->email);
+        return $gravatar->Get($email);
     }
 }
