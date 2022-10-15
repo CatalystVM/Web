@@ -1,8 +1,6 @@
 <script>
 export default {
 	mounted() {
-		//document.getElementsByTagName('html')[0].className = this.$page.props.auth?.user?.dark_mode && !this.simple ? 'dark' : ''
-
 		document.body.classList?.add('m-0')
 		document.body.classList?.add('font-sans')
 		document.body.classList?.add('antialiased')
@@ -11,7 +9,7 @@ export default {
 
 		document.body.classList?.add('leading-default')
 		document.body.classList?.add('text-base')
-		document.body.classList?.add('dark:bg-slate-1000')
+		document.body.classList?.add('dark:bg-dark')
 		document.body.classList?.add('bg-gray-50')
 		document.body.classList?.add('text-slate-500')
 
@@ -79,8 +77,8 @@ export default {
 
 	<main class="mt-0 transition-all duration-200 ease-soft-in-out">
 		<nav class="block">
-			<div class="mx-auto sm:px-8 max-w-full">
-				<div class="flex py-15 border-b border-slate-50 border-solid items-center">
+			<div class="mx-auto sm:px-17 max-w-full">
+				<div class="flex py-2.5 border-b border-slate-50 border-solid border-opacity-10 items-center">
 					<div class="mr-10 text-slate-50 lg:hidden">
 						<font-awesome-icon icon="fa-solid fa-bars fa-xl" />
 					</div>

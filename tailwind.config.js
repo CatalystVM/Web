@@ -39,6 +39,7 @@ module.exports = {
             transparent: colors.transparent,
             black: colors.black,
             white: colors.white,
+            dark: "#0b0c1b",
 
             slate: {
                 DEFAULT: colors.slate,
@@ -58,8 +59,7 @@ module.exports = {
                 800: "#3a416f",
                 850: "#323a54",
                 900: "#0f172a",
-                950: "#141728",
-                1000: "#0b0c1b"
+                950: "#141728"
             },
 
             gray: {
@@ -434,6 +434,8 @@ module.exports = {
             13: "3.25rem",
             14: "3.5rem",
             16: "4rem",
+            17: "4.25rem",
+            18: "4.50rem",
             19: "4.75rem",
             20: "5rem",
             24: "6rem",
