@@ -6,6 +6,7 @@
 _ide_helper.php
 /.idea
 /.vscode
+/.fleet
 
 # Eclipse project files
 .buildpath
