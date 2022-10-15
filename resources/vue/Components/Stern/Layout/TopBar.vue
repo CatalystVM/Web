@@ -36,8 +36,7 @@ defineComponent({
                     </li>
                     <li class="flex items-center pl-4 xl:hidden">
                         <Link mini-sidenav-burger href="javascript:;"
-                            class="hidden p-0 transition-all ease-nav-brand text-sm text-slate-500 xl:block"
-                            aria-expanded="false">
+                            class="hidden p-0 transition-all ease-nav-brand text-sm text-slate-500 xl:block">
                         <div class="w-4.5 overflow-hidden">
                             <i
                                 class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all dark:bg-white"></i>
@@ -50,8 +49,7 @@ defineComponent({
                     </li>
                     <li class="flex items-center pl-4">
                         <Link :href="route('stern::auth::logout')" method="POST" as="button"
-                            class="hidden p-0 transition-all ease-nav-brand text-sm text-slate-500 dark:text-white xl:block"
-                            aria-expanded="false">
+                            class="hidden p-0 transition-all ease-nav-brand text-sm text-slate-500 dark:text-white xl:block">
                         <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" />
                         </Link>
                     </li>
@@ -64,8 +62,7 @@ defineComponent({
                     <li class="relative flex items-center pr-2">
                         <p class="hidden transform-dropdown-show"></p>
                         <Link dropdown-trigger href="javascript:;"
-                            class="block p-0 transition-all ease-nav-brand text-sm text-slate-500 dark:text-white"
-                            aria-expanded="false">
+                            class="block p-0 transition-all ease-nav-brand text-sm text-slate-500 dark:text-white">
                         <font-awesome-icon icon="fa-solid fa-bell" />
                         </Link>
                     </li>

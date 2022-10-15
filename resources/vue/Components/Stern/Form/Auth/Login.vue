@@ -26,7 +26,7 @@ let submit = () => {
 <template>
     <div class="flex-auto p-6 text-center">
         <form @submit.prevent="submit" role="form text-left">
-            <input-email :error="form.errors?.email" v-model="form.email" />
+            <input-email :error="form.errors?.email" :model="form.email" />
             <input-password :error="form.errors?.password" v-model="form.password" />
 
             <div class="min-h-6 mb-0.5 block pl-12 text-left">

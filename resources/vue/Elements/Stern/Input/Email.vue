@@ -2,25 +2,27 @@
 export default {
     props: {
         error: String,
-        modelValue: ''
-    },
-    methods: {
-        updateValue(event) {
-            this.$emit('update:modelValue', event.target.value);
+        modelValue: '',
+        model: {
+            type: Array,
+            default: null
         }
-    }
+    },
 }
 </script>
 
+<script setup>
+import { useForm } from '@inertiajs/inertia-vue3'
+import { defineComponent } from 'vue'
+
+import Input from '@/Elements/Stern/Input/Input.vue'
+
+defineComponent({
+    Input
+})
+
+</script>
+
 <template>
-    <div class="mb-4 block text-left">
-        <label class="mb-2 ml-1 font-normal cursor-pointer select-none text-sm text-slate-700" for="email">Email</label>
-        <input id="email" type="email" :value="modelValue" @input="updateValue"
-            class="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
-            :class="{'bg-red-50 border border-red-500': error}" placeholder="Email" aria-label="Email"
-            aria-describedby="email-addon" required />
-        <p v-if="error" class="mt-2 text-sm text-red-600 dark:text-red-500">
-            <span class="font-medium">Oops!</span> {{ error }}
-        </p>
-    </div>
+    <Input :error="error" id="email" type="email" label="Email" placeholder="Enter your email" :model="model" />
 </template>

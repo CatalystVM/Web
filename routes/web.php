@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return \Inertia\Inertia::render('Home', [
-        'name' => request()->getClientIp()
-    ]);
+Route::controller('HomeController')->group(function() {
+    Route::get('/', ['as' => 'home', 'uses' => 'index']);
 });
