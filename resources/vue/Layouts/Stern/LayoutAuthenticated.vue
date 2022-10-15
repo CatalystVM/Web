@@ -15,20 +15,11 @@ export default {
         document.body.classList?.add('font-normal')
         document.body.classList?.add('text-left')
 
-        if (this.simple) {
-            document.body.classList?.add('bg-white')
-            document.body.classList?.add('dark:bg-white')
-        }
-
         document.body.classList?.add('leading-default')
         document.body.classList?.add('text-base')
-        document.body.classList?.add('dark:bg-slate-950')
+        document.body.classList?.add('dark:bg-slate-1000')
         document.body.classList?.add('bg-gray-50')
-        document.body.classList?.add('text-slate-500')
-
-        if (this.simple)
-            document.body.classList?.add('dark:text-white/80')
-
+        document.body.c
         var channel = window.Echo.channel('my-channel')
         channel.listen('MyEvent', function (data) {
             alert(JSON.stringify(data))

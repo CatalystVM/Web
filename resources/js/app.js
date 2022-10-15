@@ -87,8 +87,7 @@ createInertiaApp({
     title: title => `${title} | CatalystVM`
 })
 
-/*
 InertiaProgress.init({
     color: '#4263f5',
     showSpinner: true
-})*/
+})

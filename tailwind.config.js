@@ -7,7 +7,7 @@ module.exports = {
         "./resources/**/*.js",
         "./resources/**/*.vue",
     ],
-    darkMode: "class",
+    darkMode: ['class', '[data-mode="dark"]'],
     theme: {
         screens: {
             sm: "576px",
@@ -59,7 +59,9 @@ module.exports = {
                 850: "#323a54",
                 900: "#0f172a",
                 950: "#141728",
+                1000: "#0b0c1b"
             },
+
             gray: {
                 DEFAULT: colors.gray,
                 50: "#f8f9fa",

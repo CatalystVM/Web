@@ -36,7 +36,15 @@ class RouteServiceProvider extends ServiceProvider {
                 Route::group([
                     "namespace" => "App\\Http\\Controllers",
                     "domain" => "$baseUrl",
+                    "as" => "main::"
                 ], base_path('routes/web.php'));
+
+                Route::group([
+                    "namespace" => "App\\Http\\Controllers\\Stern",
+                    //"domain" => "my.$baseUrl",
+                    "prefix" => "my",
+                    "as" => "my::"
+                ], base_path('routes/my/web.php'));
 
                 Route::group([
                     "namespace" => "App\\Http\\Controllers\\Stern",
