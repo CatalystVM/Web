@@ -84,7 +84,7 @@ createInertiaApp({
             .mount(el)
     },
 
-    title: title => `${title} | CatalystVM`
+    title: title => `CatalystVM | ${title}`
 })
 
 InertiaProgress.init({
