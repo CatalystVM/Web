@@ -1,6 +1,11 @@
 <script>
-export default {
+import ButtonBlue from '@/Components/Main/ButtonBlue.vue'
+import ButtonDark from '@/Components/Main/ButtonDark.vue'
 
+export default {
+    components: {
+        ButtonBlue, ButtonDark
+    }
 }
 </script>
 
@@ -22,12 +27,8 @@ export default {
                         Panel</span>
                     </Link>
                     <div class="ml-2.5">
-                        <Link
-                            class="font-sans text-sm bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-7 mr-2.5 rounded-full uppercase"
-                            href="#">Login</Link>
-                        <Link
-                            class="font-sans text-sm bg-semi_dark text-slate-300 hover:text-white border border-slate-50 border-solid border-opacity-20 hover:border-opacity-50 py-2.5 px-7 rounded-full uppercase"
-                            href="#">Register</Link>
+                        <button-blue :rounded="true" :undercase="true" href="#">Login</button-blue>
+                        <button-dark :rounded="true" :undercase="true" href="#">Register</button-dark>
                     </div>
                 </div>
             </div>
