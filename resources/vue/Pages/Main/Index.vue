@@ -8,7 +8,6 @@ export default {
 
 <template>
 
-    <Head title="" />
+    <Head :title=$page.props.app.description />
 
-    
 </template>
