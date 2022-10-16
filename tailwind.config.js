@@ -20,7 +20,13 @@ module.exports = {
                 18: "4.50rem",
                 19: "4.75rem",
                 20: "5rem",
-            }
+            },
+            fontFamily: {
+                sans: ["Open Sans"],
+                serif: ['SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace', "serif"],
+                roboto: ["Roboto"],
+                body: ["Roboto", "sans-serif"]
+            },
         }
     }
 };
