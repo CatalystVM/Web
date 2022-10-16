@@ -34,6 +34,9 @@ import { createApp, h } from 'vue'
 import { createInertiaApp, Head, Link } from '@inertiajs/inertia-vue3'
 import { InertiaProgress } from '@inertiajs/progress'
 
+/* Set up using Vue 3 */
+import tidio from 'vue-tidio';
+
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -74,6 +77,7 @@ createInertiaApp({
     setup({ el, app, props, plugin }) {
         createApp({ render: () => h(app, props) })
             .use(plugin)
+            .use(tidio, { appKey: 'tzobovfxvdkdogsb5u26flat1u8vpa9p' })
             .component('font-awesome-icon', FontAwesomeIcon)
             .component('font-awesome-layers', FontAwesomeLayers)
             .component('font-awesome-layer-text', FontAwesomeLayersText)
