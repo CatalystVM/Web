@@ -40,6 +40,7 @@ module.exports = {
             black: colors.black,
             white: colors.white,
             dark: "#0b0c1b",
+            semi_dark: "#1a1b2e",
 
             slate: {
                 DEFAULT: colors.slate,
@@ -798,9 +799,8 @@ module.exports = {
         fontFamily: {
             sans: ["Open Sans"],
             serif: ['SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace', "serif"],
+            roboto: ["Roboto"],
             body: ["Roboto", "sans-serif"],
-            awesome: ["FontAwesome"],
-            "awesome-5-free": ["Font Awesome\\ 5 Free"],
         },
         fontSize: ({
             theme
