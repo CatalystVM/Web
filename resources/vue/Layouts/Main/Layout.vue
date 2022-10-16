@@ -1,13 +1,13 @@
 <script>
 import NavBar from '@/Components/Main/NavBar.vue'
 import Footer from '@/Components/Main/Footer.vue'
+import CookiesDialog from '@/Components/Main/CookiesDialog.vue'
 
 export default {
     components: {
-        NavBar, Footer
+        NavBar, Footer, CookiesDialog
     },
     mounted() {
-
         var channel = window.Echo.channel('my-channel')
         channel.listen('MyEvent', function (data) {
             alert(JSON.stringify(data))
@@ -72,6 +72,7 @@ export default {
 
     <div
         class="w-full h-screen m-0 font-roboto antialiased font-normal text-left leading-default text-base dark:bg-dark bg-gray-50 text-slate-500">
+        <!-- <CookiesDialog /> -->
         <NavBar />
 
         <main class="mt-0 transition-all duration-200 ease-soft-in-out">
@@ -79,7 +80,6 @@ export default {
                 <slot />
             </section>
         </main>
-
         <!-- <Footer /> -->
     </div>
 </template> 
