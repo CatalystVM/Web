@@ -1,0 +1,9 @@
+@import "./fonts/roboto.css";
+@import "./fonts/poppins.css";
+@import "./fonts/nunito.css";
+@import "./fonts/Open_Sans.css";
+@import "./fonts/JetBrains_Mono.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,9 +1,0 @@
-@import "./fonts/Roboto.css";
-@import "./fonts/Nunito.css";
-@import "./fonts/Open_Sans.css";
-
-/*@import "./soft-ui-dashboard-tailwind.css";*/
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

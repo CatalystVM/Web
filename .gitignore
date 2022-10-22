@@ -58,14 +58,18 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 
-# Composer
-/vendor/
-composer.phar
-composer.lock
-
 # NPM
 node_modules/
 package-lock.json
+
+#Nuxt
+/.output
+/.nuxt
+/public
+/dist
+
+#Primsa
+/server/databases/migrations
 
 # OS
 ehthumbs.db
@@ -102,24 +106,5 @@ Thumbs.db
 *.sql
 *.sqlite
 
-# Laravel 4
-bootstrap/compiled.php
-app/storage/
-
-# Laravel 5 & Lumen
-public/storage
-public/hot
-
-# Laravel 5 & Lumen with changed public path
-public_html/storage
-public_html/hot
-
-# Laravel 9 & Vite
-public/build
-resources/assets/img
-
-# Laravel 
-storage/*.key
+#Environment files
 .env
-
-public/assets
