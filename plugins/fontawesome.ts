@@ -8,6 +8,7 @@ import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fort
 import { fas } from '@fortawesome/pro-solid-svg-icons'
 import { far } from '@fortawesome/pro-regular-svg-icons'
 import { fal } from '@fortawesome/pro-light-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 //import { fat } from '@fortawesome/pro-thin-svg-icons'
 //import { fad } from '@fortawesome/pro-duotone-svg-icons'
 //import { fass } from '@fortawesome/sharp-solid-svg-icons'
@@ -16,6 +17,7 @@ import { fal } from '@fortawesome/pro-light-svg-icons'
 library.add(fas)
 library.add(far)
 library.add(fal)
+library.add(fab)
 //library.add(fat)
 //library.add(fad)
 //library.add(fass)
