@@ -3,13 +3,6 @@ import { defineNuxtConfig } from 'nuxt/config'
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     meta: {
-        meta: [
-            { charset: 'utf-8' },
-            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-
-            { name: 'theme-color', content: '#f69435' },
-            { name: 'format-detection', content: 'telephone=no' },
-        ],
         htmlAttrs: {
             'lang': 'en',
             'data-theme': 'dark' // https://daisyui.com/docs/default-themes
@@ -35,6 +28,7 @@ export default defineNuxtConfig({
     runtimeConfig: {
         private: {
             stripeSecretKey: process.env.STRIPE_SECRET_KEY,
+            fingerprintjs: process.env.FPJS_KEY,
             db: process.env.DB_URL
         },
         
@@ -63,6 +57,7 @@ export default defineNuxtConfig({
         ],
     },
      plugins: [
-        '~/plugins/fontawesome.ts'
+         '~/plugins/fingerprintjs.ts',
+         '~/plugins/fontawesome.ts'
     ]
 })

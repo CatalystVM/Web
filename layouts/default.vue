@@ -10,16 +10,6 @@ const setColorTheme = (newTheme: Theme) => {
 //setColorTheme('dark')
 </script>
 
-<style scoped>
-main {
-    @apply mt-0 transition-all duration-200 overflow-hidden w-full h-screen m-0 font-roboto
-}
-
-main>section {
-    @apply relative py-20 overflow-hidden;
-}
-</style>
-
 <template>
 
     <Head>
@@ -70,8 +60,8 @@ main>section {
     <!-- <CookiesDialog /> -->
     <NavBar />
 
-    <main class="ease-soft-in-out">
-        <section>
+    <main class="mt-0 transition-all duration-200 overflow-hidden w-full h-screen m-0 font-roboto ease-soft-in-out">
+        <section class="relative py-20 overflow-hidden">
             <slot />
         </section>
     </main>
