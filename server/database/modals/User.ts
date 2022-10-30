@@ -1,13 +1,11 @@
 import prisma from "~/server/database/client"
 
-export interface IUser {
-    id?: number
+export class User {
+
+    id?: string
     login_type?: string
     email?: string
     password?: string 
-}
-
-export class User implements IUser {
 
     static async Get(whereData: Object = {}) : Promise<User> {
         return await prisma.user.findUnique({
@@ -22,7 +20,7 @@ export class User implements IUser {
         })
     }
 
-    static async Create(data: IUser) : Promise<User> {
+    static async Create(data: User) : Promise<User> {
         return await prisma.user.create({
             data: {
                 email: data.email,

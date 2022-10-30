@@ -10,41 +10,41 @@ datasource db {
 }
 
 model MarketplaceApplication {
-    id                  String                @id @db.Char(30)
+    id                  String                  @default(cuid()) @id @db.Char(30)
     name                String
     category_id         String?
-    created_at          DateTime              @default(now())
-    updated_at          DateTime
+    created_at          DateTime                @default(now())
+    updated_at          DateTime                @default(now()) @updatedAt
     deleted_at          DateTime?
-    category            MarketplaceCategory? @relation(fields: [category_id], references: [id])
+    category            MarketplaceCategory?    @relation(fields: [category_id], references: [id])
 }
 
 model MarketplaceCategory {
-    id                    String                    @id @db.Char(30)
+    id                    String                    @default(cuid()) @id @db.Char(30)
     name                  String
     created_at            DateTime                  @default(now())
-    updated_at            DateTime
+    updated_at            DateTime                  @default(now()) @updatedAt
     deleted_at            DateTime?
     applications          MarketplaceApplication[]
 }
 
 model Session {
-    id         String    @id @db.Char(30)
+    id         String    @default(cuid()) @id @db.Char(30)
     auth_token String    @unique
     user_id    String
     created_at DateTime  @default(now())
-    updated_at DateTime
+    updated_at DateTime  @default(now()) @updatedAt
     deleted_at DateTime?
     user       User      @relation(fields: [user_id], references: [id])
 }
 
 model User {
-    id         String    @id @db.Char(30)
+    id         String    @default(cuid()) @id @db.Char(30)
     login_type String?   @default("email")
     email      String?   @unique
     password   String?
     created_at DateTime  @default(now())
-    updated_at DateTime
+    updated_at DateTime  @default(now()) @updatedAt
     deleted_at DateTime?
     session    Session[]
 }

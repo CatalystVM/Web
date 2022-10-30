@@ -1,31 +1,29 @@
-import { ICategory } from "~/server/database/modals/marketplace/Category";
+import { Category } from "~/server/database/modals/marketplace/Category";
 import prisma from "~/server/database/client"
 
-export interface IApplication {
+export class Application {
+
     id?: String
     name?: string
-    category?: ICategory
-}
-
-export class Application implements IApplication {
+    category?: Category
 
     static async Get(whereData: Object = {}): Promise<Application> {
-        return await prisma.MarketplaceApplication.findUnique({
+        return await prisma.marketplaceApplication.findUnique({
             where: whereData,
             include: { category: true },
         })
     }
 
     static async GetMany(whereData: Object = {}): Promise<Application[]> {
-        return await prisma.MarketplaceApplication.findMany({
+        return await prisma.marketplaceApplication.findMany({
             where: whereData,
             include: { category: true },
             orderBy: [{ name: 'asc' }]
         })
     }
 
-    static async Create(data: IApplication): Promise<Application> {
-        return await prisma.MarketplaceApplication.create({
+    static async Create(data: Application): Promise<Application> {
+        return await prisma.marketplaceApplication.create({
             data: {
                 name: data.name
             },
