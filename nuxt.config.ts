@@ -28,7 +28,6 @@ export default defineNuxtConfig({
     runtimeConfig: {
         private: {
             stripeSecretKey: process.env.STRIPE_SECRET_KEY,
-            fingerprintjs: process.env.FPJS_KEY,
             db: process.env.DB_URL
         },
         
@@ -57,7 +56,7 @@ export default defineNuxtConfig({
         ],
     },
      plugins: [
-         '~/plugins/fingerprintjs.ts',
+         //'~/plugins/fingerprintjs.ts',
          '~/plugins/fontawesome.ts'
     ]
 })
