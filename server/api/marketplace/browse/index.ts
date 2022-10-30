@@ -1,5 +1,5 @@
-import { GetAllCategories } from '~/server/database/repositories/marketplaceRespository'
+import { Category } from '~/server/database/modals/marketplace/Category'
 
 export default defineEventHandler(async (event) => {
-    return GetAllCategories();
+    return await Category.GetAll();
 })

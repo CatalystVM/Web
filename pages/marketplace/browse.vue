@@ -18,7 +18,7 @@ function changeCategory(category) {
 </script>
 
 <template>
-    <div class="relative py-20 overflow-hidden">
+    <div>
         <div class="flex flex-wrap px-4 lg:px-32 w-full max-w-screen-2xl mx-auto">
             <div
                 class="w-1/2 overflow-hidden lg:w-1/4 rounded-lg bg-slate-100 dark:bg-semi_dark mb-16 border border-slate-50 border-solid border-opacity-10">

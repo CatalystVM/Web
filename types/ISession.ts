@@ -1,4 +1,4 @@
-import { IUser } from "./IUser";
+import { IUser } from "~/server/database/modals/User";
 
 export interface ISession {
     auth_token?: string;
