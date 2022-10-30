@@ -10,7 +10,7 @@ useHead({
 </script>
 
 <template>
-    <div class="relative py-20 overflow-hidden">
+    <div>
 
     </div>
 </template>

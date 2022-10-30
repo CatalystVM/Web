@@ -1,5 +1,11 @@
+<style scoped>
+[data-theme="dark"] .btn-info:hover {
+    @apply bg-info_hover border-0;
+}
+</style>
+
 <template>
-    <Button class="bg-blue-600 hover:bg-blue-700">
+    <Button class="btn-info">
         <slot />
     </Button>
 </template>

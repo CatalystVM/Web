@@ -15,14 +15,34 @@ module.exports = {
         "./nuxt.config.{js,ts}",
     ],
     plugins: [
-        require('@tailwindcss/typography')
+        require('@tailwindcss/typography'),
+        require("daisyui")
     ],
     //darkMode: ['class', '[data-mode="dark"]'],
+
+    daisyui: {
+        themes: [
+            {
+                dark: {
+                    ...require("daisyui/src/colors/themes")["[data-theme=dark]"],
+                    'base-100': '#0b0c1b',
+                    'primary': '#0b0c1b',
+                    'secondary': '#1a1b2e',
+
+                    'info': colors.blue[600]
+                }
+            }
+        ]
+    },
+
     theme: {
         extend: {
             colors: {
                 dark: '#0b0c1b',
                 semi_dark: '#1a1b2e',
+
+                info_hover: colors.blue[800]
+
             },
             screens: {
                 sm: '640px',

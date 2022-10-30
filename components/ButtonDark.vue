@@ -1,7 +1,25 @@
+<style scoped>
+/* Dark Mode */
+[data-theme="dark"] .btn-ghost {
+    @apply border border-solid border-opacity-20 border-slate-50;
+}
+
+[data-theme="dark"] .btn-ghost:hover {
+    @apply border-opacity-50 text-slate-50;
+}
+
+/* Light Mode */
+[data-theme="light"] .btn-ghost {
+    @apply border border-solid border-opacity-20 border-gray-200;
+}
+
+[data-theme="light"] .btn-ghost:hover {
+    @apply border-opacity-50 text-gray-800;
+}
+</style>
+
 <template>
-    <Button
-        class="bg-slate-100 dark:bg-semi_dark hover:text-gray-800 hover:dark:text-slate-50 border border-gray-200 dark:border-slate-50 border-solid border-opacity-20 dark:border-opacity-20 hover:border-opacity-50"
-        textColor="slate-300">
+    <Button class="btn-ghost">
         <slot />
     </Button>
 </template>

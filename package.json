@@ -42,6 +42,7 @@
     "@vueuse/core": "^9.2.0",
     "bcrypt": "^5.0.1",
     "click-outside-vue3": "^4.0.1",
+    "daisyui": "^2.36.1",
     "dotenv-cli": "^6.0.0",
     "postcss-custom-properties": "^12.1.10",
     "prisma": "^4.3.1",

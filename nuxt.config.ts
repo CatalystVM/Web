@@ -2,6 +2,20 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+    meta: {
+        meta: [
+            { charset: 'utf-8' },
+            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+
+            { name: 'theme-color', content: '#f69435' },
+            { name: 'format-detection', content: 'telephone=no' },
+        ],
+        htmlAttrs: {
+            'lang': 'en',
+            'data-theme': 'dark' // https://daisyui.com/docs/default-themes
+        }
+    },
+
     modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode'],
     tailwindcss: {
         cssPath: '~/assets/css/tailwind.css',

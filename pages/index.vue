@@ -12,7 +12,7 @@ useHead({
 </script>
 
 <template>
-    <div class="relative py-20 overflow-hidden">
+    <div>
         <div class="flex flex-wrap px-4 lg:px-40 w-full max-w-screen-2xl mx-auto">
             <div class="relative w-full lg:w-8/12 lg:mt-10">
                 <h1
@@ -27,7 +27,7 @@ useHead({
                     satisfaction and convenience are of the utmost importance to us.
                 </p>
                 <div
-                    class="inline-flex items-center justify-center rounded-full mr-4 bg-slate-100 dark:bg-semi_dark mb-16 border-[1px] border-slate-50 border-solid border-opacity-10">
+                    class="inline-flex items-center justify-center rounded-full mr-4 bg-slate-100 dark:bg-secondary mb-16 border-[1px] border-slate-50 border-solid border-opacity-10">
                     <div class="inline-flex items-center justify-center sm:bg-white w-0 sm:w-14 h-14 rounded-full">
                         <img class="hidden sm:block w-4 max-w-full"
                             src="https://www.catalystvm.com/assets/images/icons/bell.svg" />
@@ -41,7 +41,7 @@ useHead({
             </div>
             <div class="hidden relative lg:block w-full lg:w-4/12">
                 <form action="/"
-                    class="text-center ml-auto p-10 pt-16 rounded-2xl bg-semi_dark border-[1px] border-slate-50 border-solid border-opacity-10">
+                    class="text-center ml-auto p-10 pt-16 rounded-2xl bg-secondary border-[1px] border-slate-50 border-solid border-opacity-10">
                     <div class="mb-7 text-xl font-bold">
                         We're giving 10% off to all students!
                         <br />

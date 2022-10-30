@@ -1,14 +1,6 @@
 <script>
 export default {
     props: {
-        textSize: {
-            type: String,
-            default: 'sm'
-        },
-        textColor: {
-            type: String,
-            default: 'white'
-        },
         rounded: {
             type: Boolean,
             default: false
@@ -23,7 +15,7 @@ export default {
         },
         padding: {
             type: String,
-            default: 'py-2.5 px-7 lg:py-3 lg:px-5'
+            default: ''
         },
         margin: {
             type: String,
@@ -38,23 +30,27 @@ export default {
             default: 'xl'
         },
 
-        href: {
+        to: {
             type: String,
             default: null
         }
     },
     data() {
         return {
-            text_size: 'text-' + this.textSize,
-            text_color: 'text-' + this.textColor,
             shadows: this.shadow ?? 'shadow-' + this.shadowSize
         }
     }
 }
 </script>
 
+<style scoped>
+.btn {
+    @apply text-sm text-slate-300 border
+}
+</style>
+
 <template>
-    <NuxtLink v-if="href" :to="href ? href : 'javascript:;'" :class="[text_size, text_color, padding, margin, shadows, {
+    <NuxtLink v-if="to" :to="to ? to : 'javascript:;'" :class="['btn', padding, margin, shadows, {
         'uppercase': uppercase,
         'rounded-full': rounded,
         'rounded-lg': !rounded,
@@ -62,7 +58,7 @@ export default {
         <slot />
     </NuxtLink>
 
-    <button v-else type="submit" :class="[text_size, text_color, padding, margin, shadows, {
+    <button v-else type="submit" :class="['btn', padding, margin, shadows, {
         'uppercase': uppercase,
         'rounded-full': rounded,
         'rounded-lg': !rounded,
