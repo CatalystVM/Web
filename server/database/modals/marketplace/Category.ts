@@ -6,21 +6,9 @@ export class Category {
     id?: String
     name?: string
     applications?: Application[]
-
-    static async Get(whereData: Object = {}) : Promise<Category> {
-        return await prisma.marketplaceCategory.findUnique({
-            where: whereData,
-            include: { applications: true },
-        })
-    }
-
-    static async GetMany(whereData: Object = {}) : Promise<Category[]> {
-        return prisma.marketplaceCategory.findMany({
-            where: whereData,
-            include: { applications: true },
-            orderBy: [{ name: 'asc' }]
-        })
-    }
+    updated_at: Date
+    created_at: Date
+    deleted_at: Date
 
     static async Create(data: Category) : Promise<Category> {
         return await prisma.marketplaceCategory.create({
@@ -32,12 +20,18 @@ export class Category {
 
     /////////////////////////////////////////////
 
-    static async GetAll() : Promise<Category[]> {
-        return await Category.GetMany();
+    static async GetAll(): Promise<Category[]> {
+        return await prisma.marketplaceCategory.findMany({
+            include: { applications: true },
+            orderBy: [{ name: 'asc' }]
+        })
     }
 
-    static async GetById(cuid: string) : Promise<Category> {
-        return await Category.Get({ id: cuid });
+    static async GetById(cuid: string): Promise<Category> {
+        return await prisma.marketplaceCategory.findUnique({
+            where: { id: cuid },
+            include: { applications: true },
+        })
     }
     
     /////////////////////////////////////////////
